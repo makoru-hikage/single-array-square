@@ -8,8 +8,6 @@ struct magic_square{
     void* cells;
 };
 
-void initialize_int_square (struct magic_square *square, int base);
-
-void initialize_char_square (struct magic_square *square, int base);
+void initialize_square (struct magic_square *square, int base);
 
 #endif
