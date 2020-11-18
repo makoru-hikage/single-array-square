@@ -3,7 +3,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdint.h>
-#include "magic_square.h"
 
 int zero_to_twenty_five[26];
 
