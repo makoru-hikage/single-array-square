@@ -42,21 +42,21 @@ void test_int_square(){
 void test_char_square(){
     printf("START==========\n");
     int base = 5;
-    struct single_array_square sq;
+    struct single_array_square csq;
 
-    initialize_square(&sq, base);
-    sq.cells = &sator;
+    initialize_square(&csq, base);
+    csq.cells = &sator;
 
-    int root_index = (uintptr_t)sq.cells;
+    int root_index = (uintptr_t)csq.cells;
     printf("Root Address: %d \n", root_index);
     printf("Root: %d \n", root_index - root_index); 
     printf("-----------\n");
 
-    for (int i = 1; i <= sq.size; i++){
-        sq.cells++;
-        printf("Index Address: %d \n", sq.cells);
-        printf("Index: %d \n", sq.cells - root_index);
-        printf("Content: %c \n", *(char* )sq.cells);
+    for (int i = 1; i <= csq.size; i++){
+        csq.cells++;
+        printf("Index Address: %d \n", csq.cells);
+        printf("Index: %d \n", csq.cells - root_index);
+        printf("Content: %c \n", *(char* )csq.cells);
         printf("-----------\n");
     }
 
