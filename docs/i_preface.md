@@ -1,0 +1,7 @@
+# PREFACE
+
+Circa 2010-2011, I'm just idle in my idle classroom. The room is noisy. I am either writing a poem, thinking of my own aphorisms, reading a random literature on my English textbook, talking/hanging out with random classmates, or doing thought experiments. Magic squares fascinate me... squares fascinates me. I often doodle in my extra notebook random things; one of them is a square.
+
+I remember playing a Playstation 1 video game named TRAG. It's gameplay feels like Resident Evil, from movement controls to the puzzles. There's a lock which is literally a 3x3 magic square where you may not repeat the numbers from 1 to 9, and all lines of 3 cells must add up to 15. With the help of my older sister, we solved it... only to find out days later that there's a dartboard with a dart on it, there hangs a paper that depicts an answer. And some days later, I read about magic squares in our Encyclopedia Americana 1993 that has 30 volumes. Magic squares somehow fascinated me.
+
+I was idling in the classroom when I drew a grid. I imagined a person moving from cell to cell, in eight directions. I started labeling them from 1 to 9. Then I progress to 1 to 16. I noticed something... and that's we'll be talking about.
