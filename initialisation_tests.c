@@ -17,7 +17,7 @@ char sator[26] = { ' ',
 void test_int_square(){
     printf("START==========\n");
     int base = 5;
-    struct magic_square isq;
+    struct single_array_square isq;
 
     initialize_square(&isq, base);
     isq.cells = &zero_to_twenty_five;
@@ -42,7 +42,7 @@ void test_int_square(){
 void test_char_square(){
     printf("START==========\n");
     int base = 5;
-    struct magic_square sq;
+    struct single_array_square sq;
 
     initialize_square(&sq, base);
     sq.cells = &sator;
