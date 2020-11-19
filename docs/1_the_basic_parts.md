@@ -73,14 +73,14 @@ where `r` is the index of the row and `c` is the index of the column. `b` is the
 ### 1.3.5. Cell in a Row
 To determine which row a **cell** belongs to, we first get the cell index and the **base**.
 
-`ceil(n / b)`
+`r(n) = ceil(n / b)`
 
 where `n` is the cell index and `b` is the base. Since we are dealing with integers here, we need to find the ceiling.
 
 ### 1.3.6. Cell in a Column
 To determine which column a **cell** belongs to, we first get the cell index and the **base**. 
 
-`b - ((b - n) mod b)`
+`c(n) = b - ((b - n) mod b)`
 
 where `n` is the cell index and `b` is the base. `mod` signifies modulo. (e.g `5 mod 2` would yield `1` because the remainder of `5/2` is `1`)
 
