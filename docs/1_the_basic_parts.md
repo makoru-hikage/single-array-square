@@ -56,12 +56,12 @@ where `l_line` is length of the line and `b` is the base.
 ### 1.3.2. Equal Rows and Columns
 The number of **rows** and **columns** are the same.
 
-`rows = columns`
+`l_rows = l_columns`
 
 ### 1.3.3. Rows, Columns, and the Base
 In a **square**, the total count of both **rows** and **columns** each is equal to the value of **base**. See 1.3.1 and 1.3.2 (e.g. When the base is 5, there can only be 5 rows and 5 columns.)
 
-`rows = columns = base`
+`l_rows = l_columns = base`
 
 ### 1.3.4. Line Indices
 Each row shall be indexed 1 up to the value of the base as well as each column shall be. (see 1.3.1).
