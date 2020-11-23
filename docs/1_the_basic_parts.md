@@ -107,4 +107,17 @@ column_ecell = column_cells(c, b)
 
 where `c` is the row index, `n` is the nth cell index of the **column**, and `b` is the base. `column_scell` is the **column's** starting cell index and `column_ecell` is the **row's** end cell index.
 
+### 1.3.9. Cell of a Row and a Column
+There are two ways to determine a cell index using a row and column, it's some sort of pointing a point using x and y in a Cartesian plane. One way is to use the function to find cells in a row (1.3.7)
+
+`n = row_cells(r,c)`
+
+where `n` is the cell index being searched, `r` is the row index and `c` the column index.
+
+Another way is to use the function to find cells in a column (1.3.8)
+
+`n = column_cells(c,r)`
+
+where `n` is the cell index being searched, `r` is the row index and `c` the column index.
+
 [end of page]
