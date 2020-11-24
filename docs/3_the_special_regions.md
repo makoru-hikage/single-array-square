@@ -96,7 +96,7 @@ d1_scell <= n <= corner_br
 ```
 where `n` is the nth **cell of the line** and `b` the **base**. `d1` simply means the **first diagonal**.
 
-### 3.3.2. Cells of the First Diagonal Line
+### 3.3.2. Cells of the Second Diagonal Line
 It always starts from 1 or the **Top-right Corner** and ends with the **Bottom-left Corner** or vice-versa. To enumerate the cell indices within the line:
 ```
 d2_scell = corner_tr
