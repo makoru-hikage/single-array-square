@@ -10,8 +10,9 @@ iii. Table of Contents
         - the Edges
         - the Corners
     3. The Special Regions
+        - the Center of a Line
+        - the Center of a Square
         - the Two Diagonal Lines
-        - the Center
     4. The Directions of Traversal
         - the Cursor
         - the Axial Directions
