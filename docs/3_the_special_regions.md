@@ -88,7 +88,7 @@ where `csq` indicates a **quadrant** of the **inner square**. `csq_2` is a cell 
 These **lines** are neither **horizontal lines** nor **vertical lines** yet they still contain **cells** counting to `b`. These two lines intersect each other in the **center** of the **square** if the **base** is odd. If the **base** is even, their **center** belongs to the **inner square**. Their **edges** are the **corners** of the **square**.
 
 ### 3.3.1. Cells of the First Diagonal Line
-It always starts from 1 or the **Top-left Corner** and ends with `S` or the **Bottom-right Corner** or vice-versa. To enumerate the cell indices within the line:
+It always starts from 1 or the **Top-left Corner** and ends with `S` or the **Bottom-right Corner** or vice-versa. To enumerate the **cell** indices within the **line**:
 ```
 d1_scell = corner_tl
 cells_d1(n) = n + (b*n) - b
@@ -97,7 +97,7 @@ d1_scell <= n <= corner_br
 where `n` is the nth **cell of the line** and `b` the **base**. `d1` simply means the **first diagonal**.
 
 ### 3.3.2. Cells of the Second Diagonal Line
-It always starts from 1 or the **Top-right Corner** and ends with the **Bottom-left Corner** or vice-versa. To enumerate the cell indices within the line:
+It always starts from 1 or the **Top-right Corner** and ends with the **Bottom-left Corner** or vice-versa. To enumerate the **cell** indices within the **line**:
 ```
 d2_scell = corner_tr
 cells_d2(n) = (b*n) - (n - 1)
