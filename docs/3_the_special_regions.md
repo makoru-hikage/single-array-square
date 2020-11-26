@@ -103,7 +103,7 @@ d2_scell = corner_tr
 cells_d2(n) = (b*n) - (n - 1)
 d2_scell <= n <= corner_bl
 ```
-where `n` is the **cell** index and `b` the **base**. `d2` simply means the **first diagonal**.
+where `n` is the **cell** index and `b` the **base**. `d2` simply means the **second diagonal**.
 
 ### 3.3.3. Intersection of Diagonal Lines of Odd Base
 See 3.2.2
