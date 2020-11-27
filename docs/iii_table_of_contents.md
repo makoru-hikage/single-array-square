@@ -14,7 +14,7 @@ iii. Table of Contents
         - the Center of a Square
         - the Two Diagonal Lines
     4. The Directions of Traversal
-        - the Cursor
-        - the Axial Directions
+        - the Current Position
+        - the Horizontal and Vertical Directions
         - the Diagonal Directions
 iv. Conventions
