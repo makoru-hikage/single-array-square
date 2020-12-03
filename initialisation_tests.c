@@ -4,8 +4,6 @@
 #include<stdlib.h>
 #include<stdint.h>
 
-int zero_to_twenty_five[26];
-
 char sator[26] = { ' ',
     's','a','t','o','r',
     'a','r','e','p','o',
@@ -20,7 +18,7 @@ void test_int_square(){
     struct single_array_square isq;
 
     initialize_square(&isq, base);
-    isq.cells = &zero_to_twenty_five;
+    isq.cells = (int *) malloc (sizeof(int) * (isq.size + 1));
 
     int root_index = (uintptr_t)isq.cells;
     printf("Root Address: %d \n", root_index);
@@ -28,14 +26,13 @@ void test_int_square(){
     printf("-----------\n");
 
     for (int i = 1; i <= isq.size; i++){
-        isq.cells++;
-        *(int *)isq.cells = i;
-        printf("Index Address: %d \n", isq.cells);
-        printf("Index: %d \n", isq.cells - root_index);
-        printf("Content: %d \n", *(int *)isq.cells);
+        ((int *)isq.cells)[i] = i;
+        printf("Index Address: %d \n", (int *)isq.cells + i);
+        printf("Index: %d \n", ((int *)isq.cells)[i]);
+        printf("Content: %d \n", ((int *)isq.cells)[i]);
         printf("-----------\n");
     }
-
+    free(isq.cells);
     printf("==========END\n");
 }
 
