@@ -16,12 +16,9 @@ int check_cell_index_validity(struct single_array_square *square, int cell_index
 }
 
 void print_int_square(struct single_array_square *square){
-
     int base = square->base;
     int square_size = square->size;
     int square_size_digits = (square_size == 0) ? 1  : ((int)log10(square_size) + 1);
-
-    printf("\n");
 
     for (int i = 1; i <= square->size; i++){
         ((int *)square->cells)[i] = i;
