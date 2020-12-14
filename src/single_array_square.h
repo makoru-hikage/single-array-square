@@ -10,4 +10,6 @@ struct single_array_square{
 
 void initialize_square (struct single_array_square *square, int base);
 
+int check_cell_index_validity(struct single_array_square *square, int cell_index);
+
 #endif
