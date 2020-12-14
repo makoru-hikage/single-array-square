@@ -91,7 +91,7 @@ These **lines** are neither **horizontal lines** nor **vertical lines** yet they
 It always starts from 1 or the **Top-left Corner** and ends with `S` or the **Bottom-right Corner** or vice-versa. To enumerate the **cell** indices within the **line**:
 ```
 d1_scell = corner_tl
-cells_d1(n) = n + (b*n) - b
+cells_d1(n) = n + (b*n) - b = 1 + (n-1)*(b+1)
 d1_scell <= n <= corner_br
 ```
 where `n` is the nth **cell of the line** and `b` the **base**. `d1` simply means the **first diagonal**.
