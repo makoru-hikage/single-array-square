@@ -113,4 +113,10 @@ Another way is to use the function to find **cells** in a **column** (see 1.3.8)
 
 where `n` is the **cell** index being searched, `r` is the **row** index and `c` the **column** index.
 
+To summarise, the equation is:
+
+`p = c - b + (b*r)`
+
+where `p` is the **cell index**, `c` and `r` are the **column** and **row** respectively, and the `b` is the **base**.
+
 [end of page]
