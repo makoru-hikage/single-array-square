@@ -85,16 +85,12 @@ To determine which column a **cell** belongs to, we first get the cell index and
 where `n` is the cell index and `b` is the base. `mod` signifies modulo. (e.g `5 mod 2` would yield `1` because the remainder of `5/2` is `1`)
 
 ### 1.3.7. Cells of a Row
-To enumerate all the cells of a certain row, we must choose a row index, then find its starting cell and count up to `b` after the start **cell** to determine the end **cell**.
+To enumerate all the **cells** of a certain **row**, we must choose a **row** index.
 ```
-row_scell(r) = 1 + (b*r) - b
-row_cells(r,n) = row_scell(r) + (n - 1)
+row_cells(r,n) = n - b + (b*r) 
 1 <= n <= b
-row_ecell = row_scell + (b - 1)
-
 ```
-
-where `r` is the row index, `n` is the nth cell index of the **row**, and `b` is the base. `row_scell` is the **row's** starting cell index and `row_ecell` is the **row's** end cell index.
+where `r` is the **row** index, `n` is the nth **cell** index of the **row**, and `b` is the **base**. To determine the starting **cell**, the value of `n` must be 1.
 
 ### 1.3.8. Cells of a Column
 The **column's** starting **cell** is always equal to the **column** index. To enumerate all the **cells** of a certain **column**, we must choose a **column** index and use a certain function. 
