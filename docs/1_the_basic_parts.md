@@ -93,15 +93,12 @@ row_cells(r,n) = n - b + (b*r)
 where `r` is the **row** index, `n` is the nth **cell** index of the **row**, and `b` is the **base**. To determine the starting **cell**, the value of `n` must be 1.
 
 ### 1.3.8. Cells of a Column
-The **column's** starting **cell** is always equal to the **column** index. To enumerate all the **cells** of a certain **column**, we must choose a **column** index and use a certain function. 
+The **column's** starting **cell** is always equal to the **column** index. To enumerate all the **cells** of a certain **column**, we must choose a **column** index. 
 ```
-column_scell = c
-column_cells(c,n) = c + (b*n) - b
+column_cells(c,n) = c - b + (b*n)
 1 <= n <= b
-column_ecell = column_cells(c, b)
 ```
-
-where `c` is the **row** index, `n` is the nth **cell** index of the **column**, and `b` is the **base**. `column_scell` is the **column's** starting **cell** index and `column_ecell` is the **row's** end **cell** index.
+where `c` is the **row** index, `n` is the nth **cell** index of the **column**, and `b` is the **base**.
 
 ### 1.3.9. Cell of a Row and a Column
 There are two ways to determine a **cell** index using a **row** and **column**, it's some sort of pointing a point using x and y in a Cartesian plane. One way is to use the function to find **cells** in a **row** (see 1.3.7)
