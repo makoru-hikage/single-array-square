@@ -4,7 +4,22 @@
 #include "src/single_array_square.h"
 
 void print_help () {
-    printf("\n single_array_square <BASE> <COMMAND>\n");
+    printf("\n single_array_square <BASE> <SELECT TYPE> <SELECT VALUE>\n");
+}
+
+void print_full_square(int base){
+    struct single_array_square square;
+    struct selected_cells sc = select_all_cells(base);
+
+    initialize_square(&square, base);
+    square.cells = (int *) malloc (sizeof(int) * (square.size + 1));
+
+    print_int_square(&square, &sc);
+
+    free (sc.indices);
+    free (square.cells);
+
+    printf("\n");
 }
 
 int main (int argc, char *argv[]) {
@@ -18,22 +33,10 @@ int main (int argc, char *argv[]) {
     printf("\n");
 
     if (base > 1){
-
-        struct single_array_square square;
-        struct selected_cells sc = select_all_cells(base);
-
-        initialize_square(&square, base);
-        square.cells = (int *) malloc (sizeof(int) * (square.size + 1));
-
-        print_int_square(&square, &sc);
-
-        free (sc.indices);
-        free (square.cells);
-
-        printf("\n");
+        print_full_square(base);
         return 0;
     }
 
-    printf("Were you inputting non-integers?\n");
+    printf("Were you inputting non-integers for a base?\n");
     return 0;
 }
