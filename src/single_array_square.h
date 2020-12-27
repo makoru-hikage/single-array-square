@@ -8,10 +8,19 @@ struct single_array_square{
     void* cells;
 };
 
+struct selected_cells{
+    int* indices;
+    int count;
+};
+
 void initialize_square (struct single_array_square *square, int base);
+
+struct selected_cells select_all_cells (int square_base);
+
+int int_in_array(int needle, int* haystack, int length);
 
 int check_cell_index_validity(struct single_array_square *square, int cell_index);
 
-void print_int_square(struct single_array_square *square);
+void print_int_square(struct single_array_square *square,struct selected_cells *selected);
 
 #endif

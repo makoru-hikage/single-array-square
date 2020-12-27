@@ -15,7 +15,35 @@ int check_cell_index_validity(struct single_array_square *square, int cell_index
     return cell_index >= 1 && cell_index <= square_size;
 }
 
-void print_int_square(struct single_array_square *square){
+struct selected_cells select_all_cells (int square_base){
+    struct selected_cells cells;
+    int square_size = square_base * square_base;
+    cells.indices = (int *) malloc (sizeof(int) * (square_size + 1));
+    cells.count = square_size;
+
+    for (int i = 0; i <= square_size; i++){
+        cells.indices[i] = i + 1;
+    }
+
+    return cells;
+}
+
+int int_in_array(int needle, int* haystack, int length) {
+    int found = 0;
+
+    for (int head = 0; head < length; head++){
+        found = (*haystack == needle);
+        if (found) 
+            break;
+
+        //Continue with the haystack.
+        haystack++;
+    }
+
+    return found;
+}
+
+void print_int_square(struct single_array_square *square, struct selected_cells *selected){
     int base = square->base;
     int square_size = square->size;
 
@@ -25,7 +53,11 @@ void print_int_square(struct single_array_square *square){
 
     for (int i = 1; i <= square->size; i++){
         ((int *)square->cells)[i] = i;
-        printf ("%0*d ", square_size_digits, ((int *)square->cells)[i]);
+        if (int_in_array(i, selected->indices, selected->count)){
+            printf ("%0*d ", square_size_digits, ((int *)square->cells)[i]);
+        } else {
+            printf ("%0*s ", square_size_digits, "*");
+        }
 
         // The rightmost cells are always the multiples of the base.
         if (((int *)square->cells)[i] % square->base == 0){
