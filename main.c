@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "src/single_array_square.h"
 
 void print_help () {
-    printf("\n single_array_square <BASE> <SELECT TYPE> <SELECT VALUE>\n");
+    printf("\n USAGE: single_array_square <BASE>\n\n");
 }
 
 void print_full_square(int base){
@@ -24,19 +25,37 @@ void print_full_square(int base){
 
 int main (int argc, char *argv[]) {
 
-    if (argc < 2){
+    int opt;
+
+    if (optind < argc){
+        int base = atoi(argv[optind]);
+        printf("\n");
+
+        if (base > 0){
+            print_full_square(base);
+            return 0;
+        }
+
         print_help();
         return 0;
     }
 
-    int base = atoi(argv[1]);
-    printf("\n");
+    while((opt = getopt(argc, argv, "r:c:")) != -1)  
+    {
+        switch(opt)
+        {
+            case 'r':
+                // TODO: Select cells by row index
+                break;
 
-    if (base > 1){
-        print_full_square(base);
-        return 0;
+            case 'c':
+                // TODO: Select cells by column index
+                break;
+
+            default:
+                print_help();
+        }
     }
 
-    printf("Were you inputting non-integers for a base?\n");
     return 0;
 }
