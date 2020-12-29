@@ -15,6 +15,14 @@ int check_cell_index_validity(struct single_array_square *square, int cell_index
     return cell_index >= 1 && cell_index <= square_size;
 }
 
+int check_row_index_validity (int index, int base){
+    return index >= 1 && index <= base;
+}
+
+int check_column_index_validity (int index, int base){
+    return index >= 1 && index <= base;
+}
+
 struct selected_cells select_all_cells (int square_base){
     struct selected_cells cells;
     int square_size = square_base * square_base;
