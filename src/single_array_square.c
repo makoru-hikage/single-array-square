@@ -118,3 +118,23 @@ int intersection_cell_index (int row_index, int column_index, int base){
 
     return c - b + (b*r);
 }
+
+/**
+ * @brief Select all the cell indices in a row
+ * 
+ * @param index 
+ * @param base 
+ * @return int* 
+ */
+int *select_row (int index, int base){
+    int *row_cell_indices = (int*) malloc (sizeof(int) * base);
+    int nth_index = 1;
+
+    for (int i = 0; i < base; i++){
+        int cell_index = intersection_cell_index(index, nth_index, base);
+        row_cell_indices[i] = cell_index;
+        nth_index++;
+    }
+
+    return row_cell_indices;
+}

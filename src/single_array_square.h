@@ -27,4 +27,6 @@ void print_int_square(struct single_array_square *square, int *selected_cell_ind
 
 int intersection_cell_index (int row_index, int column_index, int base);
 
+int *select_row (int index, int base);
+
 #endif
