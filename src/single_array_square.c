@@ -102,3 +102,19 @@ void print_int_square(struct single_array_square *square, int *selected_cell_ind
         }
     }
 }
+
+/**
+ * @brief Select a cell index using a row and a column index. See 1.3.9
+ * 
+ * @param row_index 
+ * @param column_index 
+ * @param base 
+ * @return int 
+ */
+int intersection_cell_index (int row_index, int column_index, int base){
+    int r = row_index;
+    int c = column_index;
+    int b = base;
+
+    return c - b + (b*r);
+}

@@ -25,4 +25,6 @@ int check_column_index_validity (int index, int base);
 
 void print_int_square(struct single_array_square *square, int *selected_cell_indices);
 
+int intersection_cell_index (int row_index, int column_index, int base);
+
 #endif
