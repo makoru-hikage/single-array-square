@@ -32,6 +32,20 @@ void print_full_square(int base){
     print_square(base, all_cells);
 }
 
+void print_selected_row(int index, int base){
+    int* selected_cells = select_row(index, base);
+    print_square(base, selected_cells);
+
+    free (selected_cells);
+}
+
+void print_selected_column(int index, int base){
+    int* selected_cells = select_column(index, base);
+    print_square(base, selected_cells);
+
+    free (selected_cells);
+}
+
 int main (int argc, char *argv[]) {
 
     int opt = 0;
@@ -51,20 +65,15 @@ int main (int argc, char *argv[]) {
             case 'r': {
                 all_cells_are_selected = 0;
                 int row_index = atoi(optarg);
-                int* selected_cells = select_row(row_index, base);
-                print_square(base, selected_cells);
-
-                free (selected_cells);
+                print_selected_row(row_index, base);
                 break;
             }
 
             case 'c': {
                 all_cells_are_selected = 0;
                 int column_index = atoi(optarg);
-                int* selected_cells = select_column(column_index, base);
-                print_square(base, selected_cells);
+                print_selected_column(column_index, base);
 
-                free (selected_cells);
                 break;
             }
 
