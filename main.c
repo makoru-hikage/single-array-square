@@ -36,7 +36,7 @@ int main (int argc, char *argv[]) {
 
     int opt = 0;
     int base = 0;
-    int all_selected = 1;
+    int all_cells_are_selected = 1;
 
     if (optind < argc){
         base = atoi(argv[optind]);
@@ -73,7 +73,7 @@ int main (int argc, char *argv[]) {
         }
     }
 
-    if (all_selected == 1){
+    if (all_cells_are_selected){
         print_full_square(base);
     }
 
