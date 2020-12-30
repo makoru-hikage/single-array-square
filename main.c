@@ -48,9 +48,15 @@ int main (int argc, char *argv[]) {
                 break;
             }
 
-            case 'c':
-                // TODO: Select cells by column index
+            case 'c': {
+                all_selected = 0;
+                int column_index = atoi(optarg);
+                int* selected_cells = select_column(column_index, base);
+                print_square(base, selected_cells);
+
+                free (selected_cells);
                 break;
+            }
 
             default:
                 print_help();
