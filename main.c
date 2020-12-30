@@ -8,12 +8,9 @@ void print_help () {
     printf("\n USAGE: single_array_square <BASE>\n\n");
 }
 
-void print_full_square(int base){
+void print_square(int base, int *selected_cell_indices){
     struct single_array_square square;
     int square_size = base * base;
-    int selected_cell_indices[square_size];
-
-    for (int i = 0; i < square_size; i++) selected_cell_indices[i] = i + 1;
 
     initialize_square(&square, base);
     square.cells = (int *) malloc (sizeof(int) * (square.size + 1));
@@ -27,28 +24,30 @@ void print_full_square(int base){
 
 int main (int argc, char *argv[]) {
 
-    int opt;
+    int opt = 0;
+    int base = 0;
+    int all_selected = 1;
 
     if (optind < argc){
-        int base = atoi(argv[optind]);
+        base = atoi(argv[optind]);
         printf("\n");
-
-        if (base > 0){
-            print_full_square(base);
-            return 0;
-        }
-
+    } else {
         print_help();
         return 0;
     }
 
-    while((opt = getopt(argc, argv, "r:c:")) != -1)  
-    {
-        switch(opt)
-        {
-            case 'r':
-                // TODO: Select cells by row index
+    while((opt = getopt(argc, argv, "r:c:i:")) != -1){
+        switch(opt){
+            case 'r': {
+                int all_selected = 0;
+                int row_index = atoi(optarg);
+                int* selected_cells = select_row(row_index, base);
+                print_square(base, selected_cells);
+
+                free (selected_cells);
+                return 0;
                 break;
+            }
 
             case 'c':
                 // TODO: Select cells by column index
@@ -57,6 +56,16 @@ int main (int argc, char *argv[]) {
             default:
                 print_help();
         }
+    }
+
+    if (base > 0 && all_selected){
+        int square_size = base * base;
+        int all_cells[square_size];
+
+        for (int i = 0; i < square_size; i++){
+            all_cells[i] = i + 1;
+        }
+        print_square(base, all_cells);
     }
 
     return 0;
