@@ -49,7 +49,7 @@ int main (int argc, char *argv[]) {
     while((opt = getopt(argc, argv, "r:c:i:")) != -1){
         switch(opt){
             case 'r': {
-                all_selected = 0;
+                all_cells_are_selected = 0;
                 int row_index = atoi(optarg);
                 int* selected_cells = select_row(row_index, base);
                 print_square(base, selected_cells);
@@ -59,7 +59,7 @@ int main (int argc, char *argv[]) {
             }
 
             case 'c': {
-                all_selected = 0;
+                all_cells_are_selected = 0;
                 int column_index = atoi(optarg);
                 int* selected_cells = select_column(column_index, base);
                 print_square(base, selected_cells);
