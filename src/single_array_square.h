@@ -19,7 +19,7 @@ struct selected_cells select_all_cells (int square_base);
 
 int int_in_array(int needle, int* haystack, int length);
 
-int check_cell_index_validity(struct single_array_square *square, int cell_index);
+int check_cell_index_validity(int index, int base);
 
 int check_row_index_validity (int index, int base);
 
