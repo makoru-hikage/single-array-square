@@ -10,14 +10,16 @@ void print_help () {
 
 void print_full_square(int base){
     struct single_array_square square;
-    struct selected_cells sc = select_all_cells(base);
+    int square_size = base * base;
+    int selected_cell_indices[square_size];
+
+    for (int i = 0; i < square_size; i++) selected_cell_indices[i] = i + 1;
 
     initialize_square(&square, base);
     square.cells = (int *) malloc (sizeof(int) * (square.size + 1));
 
-    print_int_square(&square, &sc);
+    print_int_square(&square, selected_cell_indices);
 
-    free (sc.indices);
     free (square.cells);
 
     printf("\n");
