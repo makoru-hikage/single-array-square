@@ -39,13 +39,12 @@ int main (int argc, char *argv[]) {
     while((opt = getopt(argc, argv, "r:c:i:")) != -1){
         switch(opt){
             case 'r': {
-                int all_selected = 0;
+                all_selected = 0;
                 int row_index = atoi(optarg);
                 int* selected_cells = select_row(row_index, base);
                 print_square(base, selected_cells);
 
                 free (selected_cells);
-                return 0;
                 break;
             }
 
@@ -58,7 +57,7 @@ int main (int argc, char *argv[]) {
         }
     }
 
-    if (base > 0 && all_selected){
+    if (all_selected == 1){
         int square_size = base * base;
         int all_cells[square_size];
 
