@@ -91,7 +91,7 @@ void print_int_square(struct single_array_square *square, int *selected_cell_ind
     for (int i = 1; i <= square->size; i++){
         ((int *)square->cells)[i] = i;
         if (int_in_array(i, selected_cell_indices, base)){
-            printf ("%0*d ", square_size_digits, ((int *)square->cells)[i]);
+            printf ("%*d ", square_size_digits, ((int *)square->cells)[i]);
         } else {
             printf ("%0*s ", square_size_digits, "*");
         }
