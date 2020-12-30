@@ -22,6 +22,16 @@ void print_square(int base, int *selected_cell_indices){
     printf("\n");
 }
 
+void print_full_square(int base){
+    int square_size = base * base;
+    int all_cells[square_size];
+
+    for (int i = 0; i < square_size; i++){
+        all_cells[i] = i + 1;
+    }
+    print_square(base, all_cells);
+}
+
 int main (int argc, char *argv[]) {
 
     int opt = 0;
@@ -64,13 +74,7 @@ int main (int argc, char *argv[]) {
     }
 
     if (all_selected == 1){
-        int square_size = base * base;
-        int all_cells[square_size];
-
-        for (int i = 0; i < square_size; i++){
-            all_cells[i] = i + 1;
-        }
-        print_square(base, all_cells);
+        print_full_square(base);
     }
 
     return 0;
