@@ -8,10 +8,6 @@ struct single_array_square{
     void* cells;
 };
 
-struct selected_cells{
-    int* indices;
-    int count;
-};
 
 void initialize_square (struct single_array_square *square, int base);
 
