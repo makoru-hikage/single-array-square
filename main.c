@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include "src/single_array_square.h"
 
+typedef int * (*select_line_function) (int, int);
+
 void print_help () {
     printf("\n USAGE: single_array_square <BASE>\n\n");
 }
@@ -32,15 +34,8 @@ void print_full_square(int base){
     print_square(base, all_cells);
 }
 
-void print_selected_row(int index, int base){
-    int* selected_cells = select_row(index, base);
-    print_square(base, selected_cells);
-
-    free (selected_cells);
-}
-
-void print_selected_column(int index, int base){
-    int* selected_cells = select_column(index, base);
+void print_selected_line(int index, int base, select_line_function select_line){
+    int* selected_cells = select_line(index, base);
     print_square(base, selected_cells);
 
     free (selected_cells);
@@ -65,14 +60,14 @@ int main (int argc, char *argv[]) {
             case 'r': {
                 all_cells_are_selected = 0;
                 int row_index = atoi(optarg);
-                print_selected_row(row_index, base);
+                print_selected_line(row_index, base, select_row);
                 break;
             }
 
             case 'c': {
                 all_cells_are_selected = 0;
                 int column_index = atoi(optarg);
-                print_selected_column(column_index, base);
+                print_selected_line(column_index, base, select_column);
 
                 break;
             }
