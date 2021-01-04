@@ -158,3 +158,45 @@ int *select_column (int index, int base){
 
     return column_cell_indices;
 }
+
+/**
+ * @brief Select a corner cells of a square
+ * 
+ * @param index
+ * @param base 
+ * @return int 
+ */
+int select_corner (int index, int base){
+    int square_size = base * base;
+
+    switch(index){
+        case UP_LEFT:
+            return 1;
+        case UP_RIGHT:
+            return base;
+        case DOWN_LEFT:
+            return square_size - (base - 1);
+        case DOWN_RIGHT:
+            return square_size;
+        default:
+            return 0;
+    }
+}
+
+/**
+ * @brief Select all the corner cells of a square
+ * 
+ * @param base 
+ * @return int* 
+ */
+int* select_all_corners (int base){
+
+    int *selected_cells = malloc (sizeof(int) * 4);
+
+    selected_cells[0] = select_corner(UP_LEFT, base);
+    selected_cells[1] = select_corner(UP_RIGHT, base);
+    selected_cells[2] = select_corner(DOWN_LEFT, base);
+    selected_cells[3] = select_corner(DOWN_RIGHT, base);
+
+    return selected_cells;
+}

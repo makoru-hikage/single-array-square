@@ -1,6 +1,18 @@
 #ifndef SINGLE_ARRAY_SQUARE
 #define SINGLE_ARRAY_SQUARE
 
+enum direction {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT,
+    UP_LEFT,
+    UP_RIGHT,
+    DOWN_LEFT,
+    DOWN_RIGHT,
+    ALL
+};
+
 struct single_array_square{
     int base;
     int size;
@@ -26,5 +38,9 @@ int intersection_cell_index (int row_index, int column_index, int base);
 int *select_row (int index, int base);
 
 int *select_column (int index, int base);
+
+int select_corner (int index, int base);
+
+int *select_all_corners (int base);
 
 #endif
