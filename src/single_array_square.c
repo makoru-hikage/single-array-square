@@ -147,14 +147,14 @@ int *select_row (int index, int base){
  * @return int* 
  */
 int *select_column (int index, int base){
-    int *row_cell_indices = (int*) malloc (sizeof(int) * base);
+    int *column_cell_indices = (int*) malloc (sizeof(int) * base);
     int nth_index = 1;
 
     for (int i = 0; i < base; i++){
         int cell_index = intersection_cell_index(nth_index, index, base);
-        row_cell_indices[i] = cell_index;
+        column_cell_indices[i] = cell_index;
         nth_index++;
     }
 
-    return row_cell_indices;
+    return column_cell_indices;
 }
