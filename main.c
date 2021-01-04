@@ -55,7 +55,7 @@ int main (int argc, char *argv[]) {
         return 0;
     }
 
-    while((opt = getopt(argc, argv, "r:c:i:")) != -1){
+    while((opt = getopt(argc, argv, "r:c:j")) != -1){
         switch(opt){
             case 'r': {
                 all_cells_are_selected = 0;
@@ -72,8 +72,19 @@ int main (int argc, char *argv[]) {
                 break;
             }
 
-            default:
+            case 'j': {
+                all_cells_are_selected = 0;
+                int* selected_cells = selected_corner;
+
+                print_square(base, selected_cells);
+
+                break;
+            }
+
+            default: {
                 print_help();
+                return 0;
+            }
         }
     }
 
