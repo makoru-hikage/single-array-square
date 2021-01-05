@@ -55,8 +55,14 @@ int main (int argc, char *argv[]) {
         return 0;
     }
 
-    while((opt = getopt(argc, argv, "r:c:j:d:m")) != -1){
+    while((opt = getopt(argc, argv, "ac:d:j:mr:")) != -1){
         switch(opt){
+            case 'a': {
+                all_cells_are_selected = 0;
+                print_full_square(base);
+                break;
+            }
+
             case 'r': {
                 all_cells_are_selected = 0;
                 int row_index = atoi(optarg);
