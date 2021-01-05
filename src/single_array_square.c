@@ -120,7 +120,7 @@ int intersection_cell_index (int row_index, int column_index, int base){
 }
 
 /**
- * @brief Select all the cell indices in a row
+ * @brief Select all the cell indices in a row. See 1.3.7
  * 
  * @param index 
  * @param base 
@@ -140,7 +140,7 @@ int *select_row (int index, int base){
 }
 
 /**
- * @brief Select all the cell indices in a row
+ * @brief Select all the cell indices in a column. See 1.3.8
  * 
  * @param index 
  * @param base 
@@ -160,7 +160,7 @@ int *select_column (int index, int base){
 }
 
 /**
- * @brief Select a corner cells of a square
+ * @brief Select a corner cell of a square. See 2.3
  * 
  * @param index
  * @param base 
@@ -184,7 +184,7 @@ int select_corner (int index, int base){
 }
 
 /**
- * @brief Select all the corner cells of a square
+ * @brief Select all the corner cells of a square. See 2.3
  * 
  * @param base 
  * @return int* 
