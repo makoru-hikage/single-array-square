@@ -59,4 +59,4 @@ int *select_all_slants (int base);
 
 int *select_slants (int index, int base);
 
-#endif
+#endif //SINGLE_ARRAY_SQUARE
