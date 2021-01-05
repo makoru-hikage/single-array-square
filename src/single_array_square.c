@@ -62,7 +62,6 @@ int check_column_index_validity (int index, int base){
  */
 int int_in_array(int needle, int* haystack, int base) {
     int found = 0;
-    int square_size = base * base;
 
     while(check_cell_index_validity(*haystack, base)){
         found = (*haystack == needle);
