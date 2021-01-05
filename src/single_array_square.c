@@ -322,13 +322,8 @@ int *select_ascending_slant (int base){
  * @return int* 
  */
 int *select_all_slants (int base){
-    int base_is_odd = ! (base % 2 != 0);
-
     //number of cells from two slants combined
     int number_of_cells = base * 2;
-
-    if (base_is_odd)
-        number_of_cells--;
 
     int *cell_indices = (int*) malloc (sizeof(int) * (number_of_cells));
     int nth_index = 1;
