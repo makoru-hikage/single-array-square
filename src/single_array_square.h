@@ -43,4 +43,6 @@ int select_corner (int index, int base);
 
 int *select_all_corners (int base);
 
+int* select_corners (int index, int base);
+
 #endif

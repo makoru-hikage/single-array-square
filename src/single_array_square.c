@@ -200,3 +200,24 @@ int* select_all_corners (int base){
 
     return selected_cells;
 }
+
+int* select_corners (int index, int base){
+
+    int *selected_cells = malloc (sizeof(int) * 4);
+
+    switch(index){
+        case UP_LEFT:
+        case UP_RIGHT:
+        case DOWN_LEFT:
+        case DOWN_RIGHT:
+            selected_cells[0] = select_corner(index, base);
+            break;
+        case ALL:
+            free(selected_cells);
+            return select_all_corners(base);
+        default:
+            return 0; 
+    }
+
+    return selected_cells;
+}
