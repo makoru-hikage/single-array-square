@@ -108,6 +108,7 @@ int main (int argc, char *argv[]) {
 
                 print_square(base, selected_cells);
 
+                free (selected_cells);
                 break;
             }
 
@@ -117,6 +118,7 @@ int main (int argc, char *argv[]) {
 
                 print_square(base, selected_cells);
 
+                free (selected_cells);
                 break;
             }
 
@@ -127,6 +129,7 @@ int main (int argc, char *argv[]) {
 
                 print_square(base, selected_cells);
 
+                free (selected_cells);
                 break;
             }
 

@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <math.h>
 
+#define NUMBER_OF_CORNERS 4
+
 /**
  * @brief Based on 1.1.1
  * 
@@ -62,7 +64,7 @@ int int_in_array(int needle, int* haystack, int base) {
     int found = 0;
     int square_size = base * base;
 
-    for (int head = 0; check_cell_index_validity(*haystack, base); head++){
+    while(check_cell_index_validity(*haystack, base)){
         found = (*haystack == needle);
         if (found) 
             break;
@@ -127,7 +129,7 @@ int intersection_cell_index (int row_index, int column_index, int base){
  * @return int* 
  */
 int *select_row (int index, int base){
-    int *row_cell_indices = (int*) malloc (sizeof(int) * base);
+    int *row_cell_indices = calloc (base + 1, sizeof(int));
     int nth_index = 1;
 
     for (int i = 0; i < base; i++){
@@ -147,7 +149,7 @@ int *select_row (int index, int base){
  * @return int* 
  */
 int *select_column (int index, int base){
-    int *column_cell_indices = (int*) malloc (sizeof(int) * base);
+    int *column_cell_indices = calloc (base + 1, sizeof(int));
     int nth_index = 1;
 
     for (int i = 0; i < base; i++){
@@ -191,7 +193,7 @@ int select_corner (int index, int base){
  */
 int* select_all_corners (int base){
 
-    int *selected_cells = malloc (sizeof(int) * 4);
+    int *selected_cells = calloc (NUMBER_OF_CORNERS + 1, sizeof(int));
 
     selected_cells[0] = select_corner(UP_LEFT, base);
     selected_cells[1] = select_corner(UP_RIGHT, base);
@@ -210,7 +212,7 @@ int* select_all_corners (int base){
  */
 int* select_corners (int index, int base){
 
-    int *selected_cells = malloc (sizeof(int) * 4);
+    int *selected_cells = calloc (NUMBER_OF_CORNERS + 1, sizeof(int));
 
     switch(index){
         case UP_LEFT:
@@ -248,7 +250,9 @@ int median_of_the_base (int base){
 int* select_square_center (int base){
     int base_is_even = ! (base % 2 != 0);
     int m = median_of_the_base(base);
-    int* selected_cells = malloc (sizeof(int) * 4);
+    int number_of_center_cells = base_is_even ? 4 : 1;
+
+    int* selected_cells = calloc (number_of_center_cells + 1, sizeof(int));
 
     selected_cells[0] = intersection_cell_index(m,m,base);
 
@@ -284,7 +288,7 @@ int find_opposite (int index, int base){
  * @return int* 
  */
 int *select_descending_slant (int base){
-    int *cell_indices = (int*) malloc (sizeof(int) * base);
+    int *cell_indices = calloc (base + 1, sizeof(int));
     int nth_index = 1;
 
     for (int i = 0; i < base; i++){
@@ -303,7 +307,7 @@ int *select_descending_slant (int base){
  * @return int* 
  */
 int *select_ascending_slant (int base){
-    int *cell_indices = (int*) malloc (sizeof(int) * base);
+    int *cell_indices = calloc (base + 1, sizeof(int));
     int nth_index = 1;
 
     for (int i = 0; i < base; i++){
@@ -325,7 +329,7 @@ int *select_all_slants (int base){
     //number of cells from two slants combined
     int number_of_cells = base * 2;
 
-    int *cell_indices = (int*) malloc (sizeof(int) * (number_of_cells));
+    int *cell_indices = calloc (number_of_cells + 1, sizeof(int));
     int nth_index = 1;
 
     // `di` denotes the indices of the descending slant
