@@ -94,7 +94,7 @@ void print_int_square(struct single_array_square *square, int *selected_cell_ind
         if (int_in_array(i, selected_cell_indices, base)){
             printf ("%*d ", square_size_digits, ((int *)square->cells)[i]);
         } else {
-            printf ("%0*s ", square_size_digits, "*");
+            printf ("%*s ", square_size_digits, "*");
         }
 
         // The rightmost cells are always the multiples of the base.
