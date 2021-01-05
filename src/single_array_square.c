@@ -225,7 +225,7 @@ int* select_corners (int index, int base){
             free(selected_cells);
             return select_all_corners(base);
         default:
-            return 0; 
+            selected_cells[0] = 0; 
     }
 
     return selected_cells;
