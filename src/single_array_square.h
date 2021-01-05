@@ -49,4 +49,14 @@ int median_of_the_base (int base);
 
 int* select_square_center (int base);
 
+int find_opposite (int index, int base);
+
+int *select_descending_slant (int base);
+
+int *select_ascending_slant (int base);
+
+int *select_all_slants (int base);
+
+int *select_slants (int index, int base);
+
 #endif

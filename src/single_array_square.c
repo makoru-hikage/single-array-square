@@ -265,3 +265,108 @@ int* select_square_center (int base){
 
     return selected_cells;
 }
+
+/**
+ * @brief Finds the opposite of a number within a given base
+ * 
+ * @param index 
+ * @param base 
+ * @return int 
+ */
+int find_opposite (int index, int base){
+    return (base + 1) - index; 
+}
+
+/**
+ * @brief Select the cells of the descending slant. See 3.3.1
+ * 
+ * @param base 
+ * @return int* 
+ */
+int *select_descending_slant (int base){
+    int *cell_indices = (int*) malloc (sizeof(int) * base);
+    int nth_index = 1;
+
+    for (int i = 0; i < base; i++){
+        int cell_index = intersection_cell_index(nth_index, nth_index, base);
+        cell_indices[i] = cell_index;
+        nth_index++;
+    }
+
+    return cell_indices;
+}
+
+/**
+ * @brief Select the cells of the ascending slant. See 3.3.2
+ * 
+ * @param base 
+ * @return int* 
+ */
+int *select_ascending_slant (int base){
+    int *cell_indices = (int*) malloc (sizeof(int) * base);
+    int nth_index = 1;
+
+    for (int i = 0; i < base; i++){
+        int cell_index = (base*nth_index) - (nth_index - 1);
+        cell_indices[i] = cell_index;
+        nth_index++;
+    }
+
+    return cell_indices;
+}
+
+/**
+ * @brief Select all the slants (forms a diagonal cross.)
+ * 
+ * @param base 
+ * @return int* 
+ */
+int *select_all_slants (int base){
+    int base_is_odd = ! (base % 2 != 0);
+
+    //number of cells from two slants combined
+    int number_of_cells = base * 2;
+
+    if (base_is_odd)
+        number_of_cells--;
+
+    int *cell_indices = (int*) malloc (sizeof(int) * (number_of_cells));
+    int nth_index = 1;
+
+    // `di` denotes the indices of the descending slant
+    // `ai` denotes the indices of the ascending slant
+    for (int di = 0, ai = number_of_cells - 1; di < base, ai >= base; di++, ai--){
+
+        // The formula of the descending slant
+        int cell_index = intersection_cell_index(nth_index, nth_index, base);
+        // Pertains to the opposite cell in a column. TODO: Docs elaborating on opposite cells.
+        int opposite_cell_index = intersection_cell_index(nth_index, find_opposite(nth_index, base), base);
+
+        cell_indices[di] = cell_index;
+        cell_indices[ai] = opposite_cell_index;
+        nth_index++;
+    }
+
+    return cell_indices;
+
+}
+
+/**
+ * @brief Select one or two slants
+ * 
+ * @param index 
+ * @param base 
+ * @return int* 
+ */
+int *select_slants (int index, int base){
+    switch(index){
+        case UP_RIGHT:
+        case DOWN_LEFT:
+            return select_ascending_slant(base);
+        case UP_LEFT:
+        case DOWN_RIGHT:
+            return select_descending_slant(base);
+        default:
+            return select_all_slants(base);
+    }
+}
