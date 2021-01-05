@@ -201,6 +201,13 @@ int* select_all_corners (int base){
     return selected_cells;
 }
 
+/**
+ * @brief Choose either one corner or all corners. See 2.3
+ * 
+ * @param index 
+ * @param base 
+ * @return int* 
+ */
 int* select_corners (int index, int base){
 
     int *selected_cells = malloc (sizeof(int) * 4);
