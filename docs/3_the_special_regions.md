@@ -110,3 +110,7 @@ See 3.2.2
 
 ### 3.3.4. Centers of the Two Diagonal Lines of an Even Base
 The **first center** of the **first diagonal** is the **first quadrant** of the **inner square**. The **second center** of the **first diagonal** is the **third quadrant** of the **inner square**. The **first center** of the **second diagonal** is the **second quadrant** of the **inner square**. The **second center** of the **second diagonal** is the **fourth quadrant** of the **inner square**.
+
+Just see 3.2.3.
+
+[end of page]
