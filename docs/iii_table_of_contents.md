@@ -1,6 +1,9 @@
 i. [Preface](i_preface.md)
+
 ii. [Introduction](ii_introduction.md)
+
 iii. Table of Contents
+
 1. [The Basic Parts](1_the_basic_parts.md)
     - the Base
     - the Cells
@@ -17,4 +20,5 @@ iii. Table of Contents
     - the Current Position
     - the Horizontal and Vertical Directions
     - the Diagonal Directions
+
 iv. [Conventions](iv_conventions.md)
