@@ -333,7 +333,7 @@ int *select_all_slants (int base){
 
     // `di` denotes the indices of the descending slant
     // `ai` denotes the indices of the ascending slant
-    for (int di = 0, ai = number_of_cells - 1; di < base, ai >= base; di++, ai--){
+    for (int di = 0, ai = number_of_cells - 1; di < base; di++, ai--){
 
         // The formula of the descending slant
         int cell_index = intersection_cell_index(nth_index, nth_index, base);
