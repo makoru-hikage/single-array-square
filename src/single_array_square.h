@@ -45,4 +45,8 @@ int *select_all_corners (int base);
 
 int* select_corners (int index, int base);
 
+int median_of_the_base (int base);
+
+int* select_square_center (int base);
+
 #endif

@@ -228,3 +228,40 @@ int* select_corners (int index, int base){
 
     return selected_cells;
 }
+
+/**
+ * @brief Get the median of the base. See 3.1.2
+ * 
+ * @param base 
+ * @return int 
+ */
+int median_of_the_base (int base){
+    return (int) floor((base + 1) / 2);
+}
+
+/**
+ * @brief Get the middle quadrant or cell of the square. See 3.2.2 and 3.2.3
+ * 
+ * @param base 
+ * @return int* 
+ */
+int* select_square_center (int base){
+    int base_is_even = ! (base % 2 != 0);
+    int m = median_of_the_base(base);
+    int* selected_cells = malloc (sizeof(int) * 4);
+
+    selected_cells[0] = intersection_cell_index(m,m,base);
+
+    if (base_is_even){
+        int first_center_quadrant_index = selected_cells[0];
+
+        // second_center_quadrant_index
+        selected_cells[1] = first_center_quadrant_index + 1;
+        // third_center_quadrant_index
+        selected_cells[2] = first_center_quadrant_index + base;
+        // fourth_center_quadrant_index
+        selected_cells[3] = first_center_quadrant_index + base + 1;
+    }
+
+    return selected_cells;
+}
