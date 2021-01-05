@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include "src/single_array_square.h"
+#include "single_array_square.h"
 
 typedef int * (*select_line_function) (int, int);
 
@@ -35,7 +35,6 @@ void print_help (char* program_name) {
 
 void print_square(int base, int *selected_cell_indices){
     struct single_array_square square;
-    int square_size = base * base;
 
     initialize_square(&square, base);
     square.cells = (int *) malloc (sizeof(int) * (square.size + 1));
