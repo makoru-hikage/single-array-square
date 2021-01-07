@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "single_array_square.h"
+#include "cell_selections.h"
 
 typedef int * (*select_line_function) (int, int);
 
