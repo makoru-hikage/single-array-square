@@ -73,6 +73,11 @@ int main (int argc, char *argv[]) {
     if (optind < argc){
         base = atoi(argv[optind]);
         printf("\n");
+        if (base <= 0){
+            printf ("ERROR: Please supply only non-zero positive integers before specifying any options.\n\n");
+            print_help(argv[0]);
+            return 1;
+        }
     } else {
         print_help(argv[0]);
         return 0;
