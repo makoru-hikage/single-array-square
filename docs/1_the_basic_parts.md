@@ -100,7 +100,7 @@ column_cells(c,n) = c - b + (b*n)
 ```
 where `c` is the **row** index, `n` is the nth **cell** index of the **column**, and `b` is the **base**.
 
-### 1.3.9. Cell of a Row and a Column
+### 1.3.9. Cell of a Row and a Column: Intersection
 There are two ways to determine a **cell** index using a **row** and **column**, it's some sort of pointing a point using x and y in a Cartesian plane. One way is to use the function to find **cells** in a **row** (see 1.3.7)
 
 `n = row_cells(r,c)`
