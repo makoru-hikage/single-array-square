@@ -20,5 +20,9 @@ iii. Table of Contents
     - the Current Position
     - the Horizontal and Vertical Directions
     - the Diagonal Directions
+5 [The Symmetry](5_the_symmetry.md)
+    - the Bisection of a Line
+    - the Opposite Cells in a Line
+    - the Opposites in a Slant
 
 iv. [Conventions](iv_conventions.md)
