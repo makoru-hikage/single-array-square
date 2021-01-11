@@ -122,3 +122,25 @@ int median_of_the_base (int base){
 int find_opposite (int index, int base){
     return (base + 1) - index; 
 }
+
+/**
+ * @brief Find the index of the respective row of a cell. See 1.3.5
+ * 
+ * @param index cell index
+ * @param base 
+ * @return int 
+ */
+int row_index(int index, int base){
+    return ceil(index / base);
+}
+
+/**
+ * @brief Find the index of the respective column of a cell. See 1.3.6
+ * 
+ * @param index cell index
+ * @param base 
+ * @return int 
+ */
+int column_index(int index, int base){
+    return base - ((base - index) % base);
+}

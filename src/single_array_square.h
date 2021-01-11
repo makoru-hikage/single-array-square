@@ -41,4 +41,8 @@ int median_of_the_base (int base);
 
 int find_opposite (int index, int base);
 
+int row_index(int index, int base);
+
+int column_index(int index, int base);
+
 #endif //SINGLE_ARRAY_SQUARE
