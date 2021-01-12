@@ -21,6 +21,9 @@ While a square with a base of 1 can be considered a perfect square, in this topi
 
 `b > 1`
 
+### 1.1.3. Square Visualisation
+When printing a **square** to a screen or paper, a new **line** shall be made per multiple of the **base**. It shall result to all the rightmost **cells** being multiples of the **base**.
+
 
 ## 1.2. The Cells
 The **cells** are the "building blocks" of the square. The count of all **cells** equate to the square **size**. The cells are labeled from 1 to the amount of the square size.

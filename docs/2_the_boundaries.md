@@ -36,7 +36,7 @@ The **left border** is always the first **vertical border**.
 where `B_left` is **left border** and `c_1` is **column** index 1.
 
 ### 2.1.5 Right Border
-The **right border** is always the last **vertical border**.
+The **right border** is always the last **vertical border**. (See 1.1.3)
 
 `B_right = c_b`
 
