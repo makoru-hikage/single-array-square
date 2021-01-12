@@ -49,6 +49,8 @@ The extra index or "index 0" can be used for anything but not for representing a
 ## 1.3. The Lines
 A **line** pertains to a collection of cells in one direction. It is limited by a **boundary**. The length of the line is always equal to the value of the **base**. It can have two basic orientations: **horizontal** and **vertical**. If it has a horizontal orientation, the line is called a **row**. If it has a vertical orientation, it is a **column**.
 
+[Please take note that these "lines" are actually "line segments" if you feel pedantic with geometry or math.]
+
 ### 1.3.1. Cells in a Line
 The **cells** in a **line** count only up to the value of **base**. (e.g. When the base is 5, there can only be 5 cells in a line.)
 
