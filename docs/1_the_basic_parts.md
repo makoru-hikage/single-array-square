@@ -3,7 +3,7 @@
 A square is a rectangle whose length and width are equal. We won't be talking much about what a rectangle is, as long as we are dealing with four 90 degree corners and a pair of parallel lines perpendicular to another pair of parallel lines. You get the gist. In this case the length and width is equal; we will call their value the **base**.
 
 ## 1.1. The Base
-We call it the **base** because it is the **base** of a power, and our exponent is two. Base to the second power is also called as **base squared**. Since the length and width of a square are equal and the area of the square is equal to length multiplied by width, you might as well use **base squared** to quantify the area of the square. Since the word "area" and "size" are often interchanged, we'll use **square size** or just **size** for this topic. **base** multiplied by itself if the **size** of the **square**.
+We call it the **base** because it is the **base** of a power, and our exponent is two. Base to the second power is also called as **base squared**. Since the length and width of a square are equal and the area of the square is equal to length multiplied by width, you might as well use **base squared** to quantify the area of the square. Since the word "area" and "size" are often interchanged, we'll use **square size** or just **size** for this topic. The **base** multiplied by itself is the **size** of the **square**.
 
 ### 1.1.1. The Square Size
 The size of the square will always be determined by the base. 
