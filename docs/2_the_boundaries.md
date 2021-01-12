@@ -63,21 +63,21 @@ To count all of the **edges** of a square, one must mind that squares have four 
 where `l_edges` are the number of the edges; `l_borders`, number of all **borders**; `l_corners` number of all **corners**; and `b` the **base**.
 
 ## 2.2.2. Top Edges
-Cells of the **top border**. All integers from 1 to `b` constitute the indices of **edges**.
+Cells of the **top border**. All integers from 1 to `b` constitute the indices of **edges**. All of these cells belong to first **row**, **row** index 1.
 
 `1 <= n <= b`
 
 where `n` is the **cell** index and `b` is the **base**
 
 ## 2.2.3. Bottom Edges
-Cells of the **bottom border**. It always contains the **cell** with index `S`
+Cells of the **bottom border**. It always contains the **cell** with index `S`. All of these cells belong to the last **row**: **row** index `b`.
 
 `S-(b-1) <= n <= S`
 
 where `n` is the **cell** index, `S` is the **square size**, and `b` is the **base**
 
 ## 2.2.4. Left Edges
-Cells of the **left border**. The topmost left edge is always 1. To determine the left edges:
+Cells of the **left border**. The topmost left edge is always 1. All of these cells belong to the first **column**: **column** index 1.
 
 ```
 edges_left(r) = 1 + (b*r) - b
@@ -87,7 +87,7 @@ edges_left(r) = 1 + (b*r) - b
 where `S-(b-1)` is the limit. `S` is the **square size**, `b` the **base**, `r` the **row** index, and `n` the **cell** index.
 
 ## 2.2.5. Right Edges
-Cells of the **right border**. The topmost right edge is always `b`. To determine the right edges:
+Cells of the **right border**. The topmost right edge is always `b`. All of these cells belong to the last **column**: **column** index `b`.
 ```
 edges_right(r) = b*r
 1 <= r <= b
