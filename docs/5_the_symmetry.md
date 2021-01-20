@@ -43,5 +43,30 @@ o_h = c_n + (b*o(r_n)) - b
 ```
 where `o(r_n)` is the **opposite index** of the **row** index of the **cell**, `c_n` is the **column** index of the **cell**, and `b` is the **base**.
 
-[//]: # (TODO: 5.3)
+### 5.2.5 Descending Slope Opposite
+To know the **opposite cell** of a **cell** in a **descending slope**, you must first determine the **row** and the **column** index of the **cell** (See 1.3.5 and 1.3.6). Find the opposite of **row** and the **cell** index and add them together to create the **intersection sum** of the opposite **cell** (See 1.4.3). Subtract the opposite of the **row** index from **intersection sum** of the opposite **cell** to get the **row** index of the **opposite cell**. Do likewise to the opposite of the **column** index to get the **column** index of the **opposite cell**. Use the **row** and the **column** index of the **opposite cell** as arguments to the **intersection** function (See 1.3.9).
+```
+o_r = o(r_n)
+o_c = o(c_n)
+is_o = o(r_n) + o(c_n)
 
+r = is_o - o(r_n)
+c = is_o - o(c_n)
+
+i(r,c) = c + b*r - b
+```
+where `r_n` and `c_n` are the **row** and **column** index of the chosen **cell**. `o_r` and `o_c` are the opposite of the **row** and **column** index number of the chosen **cell**. `is_o` is the **intersection sum** of the **opposite cell**. `r` and `c` are the **row** and **column** index of the **opposite cell**. `b` is the **base**. `i(r,c)` is the **cell** index of the **opposite cell**.
+
+### 5.2.6 Ascending Slope Opposite
+The know the **opposite cell** of a **cell** in a **ascending slope**. Simply swap the value of the **row** and **column** index by doing using the **intersection sum** then using the results as arguments to **intersection** function (See 1.3.9):
+```
+is = r_n + c_n
+r = is - r_n
+c = is - c_n
+
+i(r,c) = c + b*r - b
+
+```
+where `is` is the **intersection sum** of the chosen **cell**, `r_n` and `c_n` is the **row** and **column** index of the chosen **cell**, `r` and `c` is the **row** and **column** index of the **opposite cell**, and `i(r,c)` is the **cell** index of the **opposite cell**. 
+
+[end of page]
