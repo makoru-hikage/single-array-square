@@ -71,3 +71,5 @@ To move down-right
 `np_dl(s) = p + s*(b+1)`
 
 where `p` is the current **position**, is the **base**, and `s` is the number is steps to the bottom-right. `np` means new position.
+
+[end of page]
