@@ -153,7 +153,7 @@ where `r` and `c` are the extracted **row** and **column** indices respectively.
 A **descending slope** is a series of **cells** that start from either **row** index 1 to **column** index b or from **column** index 1 to **row** index `b` as both the **row** and **column** indices increment.
 
 #### 1.4.4.1. Descending Slope Indices
-To determine the **descending slope** index of a **cell**, you first find its **intersection difference** and subtract it from the **base**. This can be used to determine if two **cells** belong in the same **descending slope**.
+To determine the **descending slope** index of a **cell**, you first find its **intersection difference** (See 1.4.3) and subtract it from the **base**. This can be used to determine if two **cells** belong in the same **descending slope**.
 
 `d = b - id`
 
@@ -169,13 +169,13 @@ To get the maximum number of **cells** in a chosen **descending slope**, this eq
 
 `l_dscells = |b - d|`
 
-where `b` is the **base** and `d` is the **descending slope** index. The value is always absolute.
+where `b` is the **base** and `d` is the **descending slope** index (See 1.4.4.1). The value is always absolute.
 
 ### 1.4.5.1 Ascending Slope
 An **ascending slope** is a series of **cells** that start from either **column** index 1 to **row** index 1 or **row** index b to **column** index b as the **row** index decrements whilst the **column** index increments. 
 
 #### 1.4.5.1. Ascending Slope Indices
-To determine the **ascending slope** index of a **cell**, you first find its **intersection sum** and subtract 1. This can be used to determine if two **cells** belong in the same **ascending slope**.
+To determine the **ascending slope** index of a **cell**, you first find its **intersection sum** (See 1.4.3) and subtract 1. This can be used to determine if two **cells** belong in the same **ascending slope**.
 
 `a = is - 1`
 
@@ -191,7 +191,7 @@ To get the maximum number of **cells** in a chosen **ascending slope**, this equ
 
 `l_dscells = b - |b - d|`
 
-where `b` is the **base** and `d` is the **ascending slope** index.
+where `b` is the **base** and `d` is the **ascending slope** index (See 1.4.5.1).
 
 [end of page]
 
