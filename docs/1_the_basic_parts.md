@@ -124,4 +124,75 @@ To summarise, the equation is:
 
 where `p` is the **cell index**, `c` and `r` are the **column** and **row** respectively, and the `b` is the **base**.
 
+## 1.4. The Slopes
+A **slope** is also called a diagonal line. A series of **cells** made by incrementing or decrementing either the **row** index, **column** index, or both. There are two kinds of slopes, **descending** and **ascending**. Slopes are neither horizontal nor vertical.
+
+### 1.4.1. Slopes in a Square
+The count of each kind of **slope** in a **square** are as follows:
+
+`l_slopes = (b*2) - 1`
+
+where `b` is the base and `l_slopes` is simply the number of slopes in a square. So there will be `l_scopes` number each of descending and ascending slopes.
+
+### 1.4.2. Possible Number of Cells in a Slope
+The number of **cells** in a **slope** can count to 1 up to the **base** depending in where the slope started.
+
+`1 <= l_cells <= b`
+
+where `b` is the base and `l_cells` is simply the number of **cells** in a given **slope**.
+
+### 1.4.3. Intersection Sum and Difference
+An equation to use to determine if two **cells** belong on the same **slope**. It is done by extracting the **row** and the **column** index of a **cell**. (See 1.3.5 and 1.3.6)
+```
+is = r + c
+id = r - c
+```
+where `r` and `c` are the extracted **row** and **column** indices respectively. `is` is **intersection sum** and `id` is **intersection difference**.
+
+### 1.4.4. Descending Slope
+A **descending slope** is a series of **cells** that start from either **row** index 1 to **column** index b or from **column** index 1 to **row** index `b` as both the **row** and **column** indices increment.
+
+#### 1.4.4.1. Descending Slope Indices
+To determine the **descending slope** index of a **cell**, you first find its **intersection difference** and subtract it from the **base**. This can be used to determine if two **cells** belong in the same **descending slope**.
+
+`d = b - id`
+
+where `d` is the **descending slope** index, `b` the **base**, and `id` the **intersection difference**.
+
+#### 1.4.4.2. Descending Slope Starting Cells
+To get **descending slope** index 1, get the **cell** with **row** index `b` and **column** index 1. **Cell** index 1 shall always be the start of **descending slope** index `b`. The last **descending slope** index will always be equal to the total number of **descending slopes** in a **square** (See 1.4.1).
+
+To enumerate all the starting **cells**, all **cells** of **column** index 1 shall be listed in descending order. The last **cell** from that **column** would be **cell** index 1. Then enumerate all the **cells** of **row** b in ascending order.
+
+#### 1.4.4.3. Cells in a Certain Descending Slope
+To get the maximum number of **cells** in a chosen **descending slope**, this equation must be used.
+
+`l_dscells = |b - d|`
+
+where `b` is the **base** and `d` is the **descending slope** index. The value is always absolute.
+
+### 1.4.5.1 Ascending Slope
+An **ascending slope** is a series of **cells** that start from either **column** index 1 to **row** index 1 or **row** index b to **column** index b as the **row** index decrements whilst the **column** index increments. 
+
+#### 1.4.5.1. Ascending Slope Indices
+To determine the **ascending slope** index of a **cell**, you first find its **intersection sum** and subtract 1. This can be used to determine if two **cells** belong in the same **ascending slope**.
+
+`a = is - 1`
+
+where `a` is the **ascending slope** index and `is` the **intersection sum**.
+
+#### 1.4.5.2. Ascending Slope Starting Cells
+To get **ascending slope** index 1, get the **cell** with **row** and **column** index 1. The **cell** with **row** index `b` and **column** index 1 shall always be the start of **ascending slope** index `b`. The last **ascending slope** index will always be equal to the total number of **ascending slopes** in a **square** (See 1.4.1).
+
+To enumerate all the starting **cells**, all **cells** of **column** index 1 shall be listed in ascending order. The last **cell** from that **column** would be the first **cell** of **row** index b. Then enumerate all the **cells** of **row** b in ascending order.
+
+#### 1.4.5.3. Cells in a Certain Ascending Slope
+To get the maximum number of **cells** in a chosen **ascending slope**, this equation must be used.
+
+`l_dscells = b - |b - d|`
+
+where `b` is the **base** and `d` is the **ascending slope** index.
+
 [end of page]
+
+[//]: # (TODO: Two types of descending slope and two types of ascending slope, and how to enumerate the cells within them.)
