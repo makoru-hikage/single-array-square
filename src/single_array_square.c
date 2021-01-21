@@ -131,7 +131,13 @@ int find_opposite (int index, int base){
  * @return int 
  */
 int row_index(int index, int base){
-    return (int) ceil(index / base);
+    // When the dividend and divisor are both int,
+    // it'll result into an int. 
+    // The argument for a ceil function must be a double, not an int.
+    // For example, ceil(1/5) results to 0 instead of 0.2
+    // ceil(0) = 0; ceil(0.2) = 1; We want the latter
+    // so... ceil((double)1 / 5). Such is C.
+    return (int) ceil( (double)index / (double)base);
 }
 
 /**
