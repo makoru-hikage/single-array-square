@@ -148,5 +148,5 @@ int row_index(int index, int base){
  * @return int 
  */
 int column_index(int index, int base){
-    return (int)(base - ((base - index) % base));
+    return index - base * (int) ceil ((double)index / base) + base;
 }
