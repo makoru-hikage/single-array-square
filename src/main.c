@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <getopt.h>
 #include "single_array_square.h"
 #include "cell_selections.h"
 
@@ -69,6 +70,17 @@ int main (int argc, char *argv[]) {
     int opt = 0;
     int base = 0;
     int all_cells_are_selected = 1;
+    int long_index = 0;
+
+    static struct option long_options[] = {
+        {"all", no_argument, 0, 'a'},
+        {"row", required_argument, 0, 'r'},
+        {"column", required_argument, 0, 'c'},
+        {"slant", required_argument, 0, 'd'},
+        {"corner", required_argument, 0, 'j'},
+        {"center", no_argument, 0, 'm'},
+        {0,0,0,0}
+    };
 
     if (optind < argc){
         base = atoi(argv[optind]);
@@ -83,7 +95,7 @@ int main (int argc, char *argv[]) {
         return 0;
     }
 
-    while((opt = getopt(argc, argv, "ac:d:j:mr:")) != -1){
+    while((opt = getopt_long(argc, argv, "ac:d:j:mr:", long_options, &long_index)) != -1){
         switch(opt){
             case 'a': {
                 all_cells_are_selected = 0;
