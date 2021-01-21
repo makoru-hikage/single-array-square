@@ -131,7 +131,7 @@ int find_opposite (int index, int base){
  * @return int 
  */
 int row_index(int index, int base){
-    return ceil(index / base);
+    return (int) ceil(index / base);
 }
 
 /**
@@ -142,5 +142,5 @@ int row_index(int index, int base){
  * @return int 
  */
 int column_index(int index, int base){
-    return base - ((base - index) % base);
+    return (int)(base - ((base - index) % base));
 }
