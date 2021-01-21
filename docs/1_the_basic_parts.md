@@ -85,9 +85,11 @@ where `n` is the cell index and `b` is the base. Since we are dealing with integ
 ### 1.3.6. Cell in a Column
 To determine which column a **cell** belongs to, we first get the cell index and the **base**. 
 
-`c(n) = b - ((b - n) mod b)`
+`c(n) = b - b * ceil(n/b) + b`
 
-where `n` is the cell index and `b` is the base. `mod` signifies modulo. (e.g `5 mod 2` would yield `1` because the remainder of `5/2` is `1`)
+where `n` is the cell index and `b` is the base. 
+
+NOTE: `ceil(n/b)` is similar to the expression from 1.3.5. However, when writing a program implementing 1.3.5 and 1.3.6, it's best to not couple them; they are unrelated. You will not want 1.3.6 depending on 1.3.5 in your program.
 
 ### 1.3.7. Cells of a Row
 To enumerate all the **cells** of a certain **row**, we must choose a **row** index.
