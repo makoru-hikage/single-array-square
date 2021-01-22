@@ -85,7 +85,7 @@ where `n` is the cell index and `b` is the base. Since we are dealing with integ
 ### 1.3.6. Cell in a Column
 To determine which column a **cell** belongs to, we first get the cell index and the **base**. 
 
-`c(n) = b - b * ceil(n/b) + b`
+`c(n) = n - b * ceil(n/b) + b`
 
 where `n` is the cell index and `b` is the base. 
 
