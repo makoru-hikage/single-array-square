@@ -4,15 +4,15 @@
 #define NUMBER_OF_CORNERS 4
 
 enum direction {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT,
-    UP_LEFT,
-    UP_RIGHT,
-    DOWN_LEFT,
-    DOWN_RIGHT,
-    ALL
+    UP,             //0b0000
+    DOWN,           //0b0001
+    LEFT,           //0b0010
+    RIGHT,          //0b0011
+    UP_LEFT,        //0b0100
+    UP_RIGHT,       //0b0101
+    DOWN_LEFT,      //0b0110
+    DOWN_RIGHT,     //0b0111
+    ALL             //0b1000
 };
 
 struct single_array_square{
