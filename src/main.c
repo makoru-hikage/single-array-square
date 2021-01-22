@@ -112,13 +112,6 @@ int main (int argc, char *argv[]) {
             case 'r': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-
-                    if (*endptr != '\0')
-                        exit_on_input_error();
-
-                    if (errno != 0)
-                        exit_on_error();
-
                     selected_cells = select_row(index, base);
                 }
                 break;
@@ -127,13 +120,6 @@ int main (int argc, char *argv[]) {
             case 'c': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-
-                    if (*endptr != '\0')
-                        exit_on_input_error();
-
-                    if (errno != 0)
-                        exit_on_error();
-
                     selected_cells = select_column(index, base);
                 }
                 break;
@@ -142,13 +128,6 @@ int main (int argc, char *argv[]) {
             case 'j': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-
-                    if (*endptr != '\0')
-                        exit_on_input_error();
-
-                    if (errno != 0)
-                        exit_on_error();
-
                     selected_cells = select_corners(index, base);
                 }
 
@@ -164,13 +143,6 @@ int main (int argc, char *argv[]) {
             case 'd': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-
-                    if (*endptr != '\0')
-                        exit_on_input_error();
-
-                    if (errno != 0)
-                        exit_on_error();
-
                     selected_cells = select_slants(index, base);
                 }
 
@@ -187,6 +159,13 @@ int main (int argc, char *argv[]) {
     if (selected_cells == NULL){
         selected_cells = select_all_cells(base);
     }
+
+    // After parsing the all the getopt switches and arguments...
+    if (*endptr != '\0')
+        exit_on_input_error();
+
+    if (errno != 0)
+        exit_on_error();
 
     print_selected_cells(base, selected_cells);
 
