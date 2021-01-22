@@ -50,15 +50,13 @@ void exit_on_error () {
 
 void print_square(int base, int *selected_cell_indices){
     struct single_array_square square;
-
     initialize_square(&square, base);
     square.cells = (int *) malloc (sizeof(int) * (square.size + 1));
 
     print_int_square(&square, selected_cell_indices);
+    printf("\n");
 
     free (square.cells);
-
-    printf("\n");
 }
 
 void print_selected_cells(int base, int* selected_cells){
@@ -67,7 +65,6 @@ void print_selected_cells(int base, int* selected_cells){
 }
 
 int main (int argc, char *argv[]) {
-
     // Variables for getopt_long
     int opt = 0;
     int long_index = 0;
@@ -81,7 +78,7 @@ int main (int argc, char *argv[]) {
         {0,0,0,0}
     };
 
-    //used by strtol to store memory addresses of erratic characters.
+    //Used by strtol to store memory addresses of erratic characters.
     char* endptr; 
 
     //Domain logic variables
@@ -130,7 +127,6 @@ int main (int argc, char *argv[]) {
                     int index = strtol(optarg, &endptr, 0);
                     selected_cells = select_corners(index, base);
                 }
-
                 break;
             }
 
@@ -145,7 +141,6 @@ int main (int argc, char *argv[]) {
                     int index = strtol(optarg, &endptr, 0);
                     selected_cells = select_slants(index, base);
                 }
-
                 break;
             }
 
