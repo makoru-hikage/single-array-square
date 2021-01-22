@@ -79,7 +79,8 @@ int main (int argc, char *argv[]) {
     };
 
     //Used by strtol to store memory addresses of erratic characters.
-    char* endptr; 
+    char strtol_error = '\0';
+    char* endptr = &strtol_error;
 
     //Domain logic variables
     int base = 0;
