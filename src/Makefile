@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-g -Wall -lm
+CFLAGS=-g -Wall -lm -std=c11
 APP=sasquare
 
 all: $(APP)
