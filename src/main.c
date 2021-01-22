@@ -3,8 +3,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <getopt.h>
+#include <errno.h>
 #include "single_array_square.h"
 #include "cell_selections.h"
+#include "symmetry.h"
 
 typedef int * (*select_line_function) (int, int);
 
@@ -48,20 +50,8 @@ void print_square(int base, int *selected_cell_indices){
     printf("\n");
 }
 
-void print_full_square(int base){
-    int square_size = base * base;
-    int all_cells[square_size];
-
-    for (int i = 0; i < square_size; i++){
-        all_cells[i] = i + 1;
-    }
-    print_square(base, all_cells);
-}
-
-void print_selected_line(int index, int base, select_line_function select_line){
-    int* selected_cells = select_line(index, base);
+void print_selected_cells(int base, int* selected_cells){
     print_square(base, selected_cells);
-
     free (selected_cells);
 }
 
@@ -69,8 +59,8 @@ int main (int argc, char *argv[]) {
 
     int opt = 0;
     int base = 0;
-    int all_cells_are_selected = 1;
     int long_index = 0;
+    int* selected_cells = NULL;
 
     static struct option long_options[] = {
         {"all", no_argument, 0, 'a'},
@@ -98,55 +88,42 @@ int main (int argc, char *argv[]) {
     while((opt = getopt_long(argc, argv, "ac:d:j:mr:", long_options, &long_index)) != -1){
         switch(opt){
             case 'a': {
-                all_cells_are_selected = 0;
-                print_full_square(base);
+                if (selected_cells == NULL)
+                    selected_cells = select_all_cells(base);
                 break;
             }
 
             case 'r': {
-                all_cells_are_selected = 0;
-                int row_index = atoi(optarg);
-                print_selected_line(row_index, base, select_row);
+                int index = atoi(optarg);
+                if (selected_cells == NULL)
+                    selected_cells = select_row(index, base);
                 break;
             }
 
             case 'c': {
-                all_cells_are_selected = 0;
-                int column_index = atoi(optarg);
-                print_selected_line(column_index, base, select_column);
-
+                int index = atoi(optarg);
+                if (selected_cells == NULL)
+                    selected_cells = select_column(index, base);
                 break;
             }
 
             case 'j': {
-                all_cells_are_selected = 0;
                 int index = atoi(optarg);
-                int* selected_cells = select_corners(index, base);
-
-                print_square(base, selected_cells);
-
-                free (selected_cells);
+                if (selected_cells == NULL)
+                    selected_cells = select_corners(index, base);
                 break;
             }
 
             case 'm': {
-                all_cells_are_selected = 0;
-                int* selected_cells = select_square_center(base);
-
-                print_square(base, selected_cells);
-
-                free (selected_cells);
+                if (selected_cells == NULL)
+                    selected_cells = select_square_center(base);
                 break;
             }
 
             case 'd': {
-                all_cells_are_selected = 0;
                 int index = atoi(optarg);
-                int* selected_cells = select_slants(index, base);
-
-                print_square(base, selected_cells);
-
-                free (selected_cells);
+                if (selected_cells == NULL)
+                    selected_cells = select_slants(index, base);
                 break;
             }
 
@@ -157,9 +134,11 @@ int main (int argc, char *argv[]) {
         }
     }
 
-    if (all_cells_are_selected){
-        print_full_square(base);
+    if (selected_cells == NULL){
+        selected_cells = select_all_cells(base);
     }
+
+    print_selected_cells(base, selected_cells);
 
     return 0;
 }
