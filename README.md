@@ -11,7 +11,7 @@ To read further, please follow this [link](docs/iii_table_of_contents.md)
 - Shows a cell's counterpart on the other side of a square
 
 ## Usage
-Requires Unix's Make and GCC. Please clone this project and the following on bash.
+Requires Unix's Make and GCC. Please clone this project and do the following on the CLI.
 ```bash
 cd src
 make
