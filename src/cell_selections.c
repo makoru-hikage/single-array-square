@@ -23,6 +23,23 @@ int intersection_cell_index (int row_index, int column_index, int base){
 }
 
 /**
+ * @brief Select all the cells
+ * 
+ * @param base 
+ * @return int* 
+ */
+int *select_all_cells(int base){
+    int square_size = base * base;
+    int *all_cells = calloc (square_size + 1, sizeof(int));
+
+    for (int i = 0; i < square_size; i++){
+        all_cells[i] = i + 1;
+    }
+
+    return all_cells;
+}
+
+/**
  * @brief Select all the cell indices in a row. See 1.3.7
  * 
  * @param index 

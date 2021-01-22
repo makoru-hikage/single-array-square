@@ -3,6 +3,8 @@
 
 int intersection_cell_index (int row_index, int column_index, int base);
 
+int *select_all_cells (int base);
+
 int *select_row (int index, int base);
 
 int *select_column (int index, int base);
