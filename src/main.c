@@ -99,7 +99,7 @@ int main (int argc, char *argv[]) {
         return EXIT_SUCCESS;
     }
 
-    while((opt = getopt_long(argc, argv, "ac:d:j:mr:", long_options, &long_index)) != -1){
+    while((opt = getopt_long(argc, argv, "ac:d:j:mr:H:V:D:A:", long_options, &long_index)) != -1){
         switch(opt){
             case 'a': {
                 if (selected_cells == NULL)
@@ -141,6 +141,58 @@ int main (int argc, char *argv[]) {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
                     selected_cells = select_slants(index, base);
+                }
+                break;
+            }
+
+            case 'H': {
+                if (selected_cells == NULL){
+                    selected_cells = malloc(sizeof(int)* 3);
+                    int index = strtol(optarg, &endptr, 0);
+
+                    int opposite_index = horizontal_opposite(index, base);
+
+                    selected_cells[0] = index;
+                    selected_cells[1] = opposite_index;
+                }
+                break;
+            }
+
+            case 'V': {
+                if (selected_cells == NULL){
+                    selected_cells = malloc(sizeof(int)* 3);
+                    int index = strtol(optarg, &endptr, 0);
+
+                    int opposite_index = vertical_opposite(index, base);
+
+                    selected_cells[0] = index;
+                    selected_cells[1] = opposite_index;
+                }
+                break;
+            }
+
+            case 'D': {
+                if (selected_cells == NULL){
+                    selected_cells = malloc(sizeof(int)* 3);
+                    int index = strtol(optarg, &endptr, 0);
+
+                    int opposite_index = descending_opposite(index, base);
+
+                    selected_cells[0] = index;
+                    selected_cells[1] = opposite_index;
+                }
+                break;
+            }
+
+            case 'A': {
+                if (selected_cells == NULL){
+                    selected_cells = malloc(sizeof(int)* 3);
+                    int index = strtol(optarg, &endptr, 0);
+
+                    int opposite_index = ascending_opposite(index, base);
+
+                    selected_cells[0] = index;
+                    selected_cells[1] = opposite_index;
                 }
                 break;
             }

@@ -7,7 +7,7 @@ all: $(APP)
 %.o: %.c %.h
 	$(CC) $(CFLAGS) -c $^
 
-sasquare: single_array_square.o cell_selections.o main.c
+sasquare: single_array_square.o cell_selections.o symmetry.o main.c
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
