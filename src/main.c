@@ -8,8 +8,6 @@
 #include "cell_selections.h"
 #include "symmetry.h"
 
-typedef int * (*select_line_function) (int, int);
-
 void print_help (char* program_name) {
 
     printf("USAGE: %s BASE [OPTIONS]...\n\n", program_name);
@@ -89,11 +87,11 @@ int main (int argc, char *argv[]) {
         if (base <= 0){
             printf ("ERROR: Please supply only non-zero positive integers before specifying any options.\n\n");
             print_help(argv[0]);
-            return 1;
+            return EXIT_FAILURE;
         }
     } else {
         print_help(argv[0]);
-        return 0;
+        return EXIT_SUCCESS;
     }
 
     while((opt = getopt_long(argc, argv, "ac:d:j:mr:", long_options, &long_index)) != -1){
@@ -174,7 +172,7 @@ int main (int argc, char *argv[]) {
 
             default: {
                 print_help(argv[0]);
-                return 0;
+                return EXIT_SUCCESS;
             }
         }
     }
@@ -185,5 +183,5 @@ int main (int argc, char *argv[]) {
 
     print_selected_cells(base, selected_cells);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
