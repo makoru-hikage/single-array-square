@@ -19,21 +19,26 @@ void print_help (char* program_name) {
         "Selects all the cells when options aren't specified.\n"
         "\n"
         "OPTIONS:\n"
-        "  -a, --all                select all cells\n"
-        "  -c, --column=INDEX       select all cells within a column by column INDEX\n"
-        "  -d, --slant=DIRECTION    select a particular slant:\n"
-        "                               5 or 6 for the descending slant\n"
-        "                               4 or 7 for the ascending slant\n"
-        "                               others select both slants\n"
-        "  -j, --corner=INDEX       select a particular corner:\n"
-        "                               4 for the top-left corner\n"
-        "                               5 for the top-right corner\n"
-        "                               6 for the down-left corner\n"
-        "                               7 for the down-right corner\n"
-        "                               8 for all corners\n"
-        "                               others select none.\n"
-        "  -m, --center             select the central part of a square\n"
-        "  -r, --row=INDEX          select all cells within a row by row INDEX\n"
+        "  -a, --all                            select all cells\n"
+        "  -A, --ascending-opposite=INDEX       select a cell and its opposite along an ascending slant\n"
+        "  -c, --column=INDEX                   select all cells within a column by column INDEX\n"
+        "  -d, --slant=DIRECTION                select a particular slant:\n"
+        "                                           5 or 6 for the descending slant\n"
+        "                                           4 or 7 for the ascending slant\n"
+        "                                           others select both slants\n"
+        "  -D, --descending-opposite=INDEX      select a cell and its opposite along an descending slant\n"
+        "  -H, --horizontal-opposite=INDEX      select a cell and its opposite along a row\n"
+
+        "  -j, --corner=INDEX                   select a particular corner:\n"
+        "                                           4 for the top-left corner\n"
+        "                                           5 for the top-right corner\n"
+        "                                           6 for the down-left corner\n"
+        "                                           7 for the down-right corner\n"
+        "                                           8 for all corners\n"
+        "                                           others select none.\n"
+        "  -m, --center                         select the central part of a square\n"
+        "  -r, --row=INDEX                      select all cells within a row by row INDEX\n"
+        "  -V, --vertical-opposite=INDEX        select a cell and its opposite along a column\n"
     );
 
 }
@@ -75,6 +80,10 @@ int main (int argc, char *argv[]) {
         {"slant", required_argument, 0, 'd'},
         {"corner", required_argument, 0, 'j'},
         {"center", no_argument, 0, 'm'},
+        {"horizontal-opposite", required_argument, 0, 'H'},
+        {"vertical-opposite", required_argument, 0, 'V'},
+        {"ascending-opposite", required_argument, 0, 'D'},
+        {"descending-opposite", required_argument, 0, 'A'},
         {0,0,0,0}
     };
 
