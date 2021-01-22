@@ -8,6 +8,7 @@ iii. Table of Contents
     - the Base
     - the Cells
     - the Lines
+    - the Slopes
 2. [The Boundaries](2_the_boundaries.md)
     - the Borders
     - the Edges
@@ -23,6 +24,5 @@ iii. Table of Contents
 5 [The Symmetry](5_the_symmetry.md)
     - the Bisection of a Line
     - the Opposite Cells in a Line
-    - the Opposites in a Slant
 
 iv. [Conventions](iv_conventions.md)
