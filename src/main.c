@@ -37,6 +37,16 @@ void print_help (char* program_name) {
 
 }
 
+void exit_on_input_error(){
+    fprintf(stderr, "Please input an integer as an argument.\n\n");
+    exit(EXIT_FAILURE);
+}
+
+void exit_on_error () {
+    perror("ERROR");
+    exit(EXIT_FAILURE);
+}
+
 void print_square(int base, int *selected_cell_indices){
     struct single_array_square square;
 
@@ -61,6 +71,7 @@ int main (int argc, char *argv[]) {
     int base = 0;
     int long_index = 0;
     int* selected_cells = NULL;
+    char* endptr; //used by strtol to store memory addresses of erratic characters.
 
     static struct option long_options[] = {
         {"all", no_argument, 0, 'a'},
@@ -94,23 +105,48 @@ int main (int argc, char *argv[]) {
             }
 
             case 'r': {
-                int index = atoi(optarg);
-                if (selected_cells == NULL)
+                if (selected_cells == NULL){
+                    int index = strtol(optarg, &endptr, 0);
+
+                    if (*endptr != '\0')
+                        exit_on_input_error();
+
+                    if (errno != 0)
+                        exit_on_error();
+
                     selected_cells = select_row(index, base);
+                }
                 break;
             }
 
             case 'c': {
-                int index = atoi(optarg);
-                if (selected_cells == NULL)
+                if (selected_cells == NULL){
+                    int index = strtol(optarg, &endptr, 0);
+
+                    if (*endptr != '\0')
+                        exit_on_input_error();
+
+                    if (errno != 0)
+                        exit_on_error();
+
                     selected_cells = select_column(index, base);
+                }
                 break;
             }
 
             case 'j': {
-                int index = atoi(optarg);
-                if (selected_cells == NULL)
+                if (selected_cells == NULL){
+                    int index = strtol(optarg, &endptr, 0);
+
+                    if (*endptr != '\0')
+                        exit_on_input_error();
+
+                    if (errno != 0)
+                        exit_on_error();
+
                     selected_cells = select_corners(index, base);
+                }
+
                 break;
             }
 
@@ -121,9 +157,18 @@ int main (int argc, char *argv[]) {
             }
 
             case 'd': {
-                int index = atoi(optarg);
-                if (selected_cells == NULL)
+                if (selected_cells == NULL){
+                    int index = strtol(optarg, &endptr, 0);
+
+                    if (*endptr != '\0')
+                        exit_on_input_error();
+
+                    if (errno != 0)
+                        exit_on_error();
+
                     selected_cells = select_slants(index, base);
+                }
+
                 break;
             }
 
