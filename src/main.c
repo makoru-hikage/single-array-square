@@ -4,9 +4,12 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <errno.h>
+
 #include "single_array_square.h"
 #include "cell_selections.h"
 #include "symmetry.h"
+
+#define PROGRAM_NAME argv[0] 
 
 void print_help (char* program_name) {
 
@@ -65,12 +68,9 @@ void print_selected_cells(int base, int* selected_cells){
 
 int main (int argc, char *argv[]) {
 
+    // Variables for getopt_long
     int opt = 0;
-    int base = 0;
     int long_index = 0;
-    int* selected_cells = NULL;
-    char* endptr; //used by strtol to store memory addresses of erratic characters.
-
     static struct option long_options[] = {
         {"all", no_argument, 0, 'a'},
         {"row", required_argument, 0, 'r'},
@@ -81,16 +81,23 @@ int main (int argc, char *argv[]) {
         {0,0,0,0}
     };
 
+    //used by strtol to store memory addresses of erratic characters.
+    char* endptr; 
+
+    //Domain logic variables
+    int base = 0;
+    int* selected_cells = NULL;
+
+    // Assure that the very first program argument is an integer; enforce the syntax.
     if (optind < argc){
         base = atoi(argv[optind]);
         printf("\n");
         if (base <= 0){
-            printf ("ERROR: Please supply only non-zero positive integers before specifying any options.\n\n");
-            print_help(argv[0]);
+            print_help(PROGRAM_NAME);
             return EXIT_FAILURE;
         }
     } else {
-        print_help(argv[0]);
+        print_help(PROGRAM_NAME);
         return EXIT_SUCCESS;
     }
 
@@ -171,7 +178,7 @@ int main (int argc, char *argv[]) {
             }
 
             default: {
-                print_help(argv[0]);
+                print_help(PROGRAM_NAME);
                 return EXIT_SUCCESS;
             }
         }
