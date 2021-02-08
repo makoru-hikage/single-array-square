@@ -150,3 +150,47 @@ int row_index(int index, int base){
 int column_index(int index, int base){
     return index - base * (int) ceil ((double)index / base) + base;
 }
+
+/**
+ * @brief Takes the row and column index of a cell and add them.
+ * 
+ * @param index 
+ * @param base 
+ * @return int 
+ */
+int intersection_sum(int index, int base){
+    return row_index(index, base) + column_index(index, base);
+}
+
+/**
+ * @brief Takes the row and column index of a cell then subtract the column index from the row
+ * 
+ * @param index 
+ * @param base 
+ * @return int 
+ */
+int intersection_diff(int index, int base){
+    return row_index(index, base) - column_index(index, base);
+}
+
+/**
+ * @brief Gets the descending slope index of a cell
+ * 
+ * @param index 
+ * @param base 
+ * @return int 
+ */
+int descending_index(int index, int base){
+    return base - intersection_diff(index, base);
+}
+
+/**
+ * @brief Gets the ascending slope index of a cell
+ * 
+ * @param index 
+ * @param base 
+ * @return int 
+ */
+int ascending_index(int index, int base){
+    return intersection_sum(index, base) - 1;
+}

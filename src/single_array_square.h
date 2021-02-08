@@ -45,4 +45,12 @@ int row_index(int index, int base);
 
 int column_index(int index, int base);
 
+int intersection_sum(int index, int base);
+
+int intersection_diff(int index, int base);
+
+int descending_index(int index, int base);
+
+int ascending_index(int index, int base);
+
 #endif //SINGLE_ARRAY_SQUARE
