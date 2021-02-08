@@ -173,7 +173,7 @@ To get the maximum number of **cells** in a chosen **descending slope**, this eq
 
 where `b` is the **base** and `d` is the **descending slope** index (See 1.4.4.1). The value is always absolute.
 
-### 1.4.5.1 Ascending Slope
+### 1.4.1 Ascending Slope
 An **ascending slope** is a series of **cells** that start from either **column** index 1 to **row** index 1 or **row** index b to **column** index b as the **row** index decrements whilst the **column** index increments. 
 
 #### 1.4.5.1. Ascending Slope Indices
