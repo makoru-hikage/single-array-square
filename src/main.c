@@ -218,6 +218,14 @@ int main (int argc, char *argv[]) {
                 break;
             }
 
+            case '4': {
+                if (selected_cells == NULL){
+                    int index = strtol(optarg, &endptr, 0);
+                    selected_cells = select_ascending_slope(index, base);
+                }
+                break;
+            }
+
             default: {
                 print_help(PROGRAM_NAME);
                 return EXIT_SUCCESS;

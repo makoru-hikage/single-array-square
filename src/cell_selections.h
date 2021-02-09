@@ -27,4 +27,6 @@ int *select_slants (int index, int base);
 
 int *select_descending_slope(int index, int base);
 
+int *select_ascending_slope(int index, int base);
+
 #endif // CELL_SELECTIONS
