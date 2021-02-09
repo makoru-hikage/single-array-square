@@ -185,16 +185,7 @@ int* select_square_center (int base){
  * @return int* 
  */
 int *select_descending_slant (int base){
-    int *cell_indices = calloc (base + 1, sizeof(int));
-    int nth_index = 1;
-
-    for (int i = 0; i < base; i++){
-        int cell_index = intersection_cell_index(nth_index, nth_index, base);
-        cell_indices[i] = cell_index;
-        nth_index++;
-    }
-
-    return cell_indices;
+    return select_descending_slope(base, base);
 }
 
 /**
@@ -204,16 +195,7 @@ int *select_descending_slant (int base){
  * @return int* 
  */
 int *select_ascending_slant (int base){
-    int *cell_indices = calloc (base + 1, sizeof(int));
-    int nth_index = 1;
-
-    for (int i = 0; i < base; i++){
-        int cell_index = (base*nth_index) - (nth_index - 1);
-        cell_indices[i] = cell_index;
-        nth_index++;
-    }
-
-    return cell_indices;
+    return select_ascending_slope(base, base);
 }
 
 /**
