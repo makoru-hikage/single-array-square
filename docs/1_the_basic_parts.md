@@ -173,6 +173,16 @@ To get the maximum number of **cells** in a chosen **descending slope**, this eq
 
 where `b` is the **base** and `d` is the **descending slope** index (See 1.4.4.1). The value is always absolute.
 
+#### 1.4.4.4. Cells of a Descending Slope
+To list all the **cells** belonging to the **slope**, the limit number of **cells** (see 1.4.4.3), a **slope** can have, must be determined.
+```
+id = b - d
+y = b^(floor(d/n))
+desc_cells = n + (b*n) - b + y*|id|
+1 <= n <= |id|
+```
+where `n` is the nth **cell** of the **slope**, `b` the **base**, `d` the **descending slope** index, and `id` the **identity difference** of a **cell** derived from the **descending slope** index. `y` represents whether the **slopes** start from **column** 1 or **row** 1. The value of `y` can either be `b` or 1. If it is `b`, then it starts from **column** 1, if 1, then **row** 1.
+
 ### 1.4.1 Ascending Slope
 An **ascending slope** is a series of **cells** that start from either **column** index 1 to **row** index 1 or **row** index b to **column** index b as the **row** index decrements whilst the **column** index increments. 
 
@@ -195,6 +205,15 @@ To get the maximum number of **cells** in a chosen **ascending slope**, this equ
 
 where `b` is the **base** and `d` is the **ascending slope** index (See 1.4.5.1).
 
-[end of page]
+#### 1.4.5.4. Cells of an Ascending Slope
+To list all the **cells** belonging to the **slope**, the limit number of **cells** (see 1.4.5.3), a **slope** can have, must be determined.
+```
+id = b - a
+l = |b - a|
+y = b^(floor(a/n))
+asc_cells = b*l + b - b*n - l + n - y*id
+1 <= n <= l
+```
+where `n` is the nth **cell** of the **slope**, `b` the **base**, `a` the **ascending slope** index, `l` the limit of number of **cells** in the **slope**, and `id` the **identity difference** of a **cell** derived from the **ascending slope** index. `y` represents whether the **slopes** start from **column** 1 or **row** `b`. The value of `y` can either be `b` or 1. If it is `b`, then it starts from **column** 1, if 1, then **row** `b`.
 
-[//]: # (TODO: Two types of descending slope and two types of ascending slope, and how to enumerate the cells within them.)
+[end of page]
