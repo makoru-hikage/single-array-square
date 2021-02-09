@@ -1,0 +1,9 @@
+# Changelog
+
+## [0.1]
+### Features
+- Displays a text-based perfect square
+- Highlights a chosen row or column of a perfect square
+- Highlights all four corners of a square
+- Highlights the center of a square
+- Shows a cell's counterpart on the other side of a square
