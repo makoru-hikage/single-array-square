@@ -57,4 +57,6 @@ int desc_slope_cell_count(int descending_index, int base);
 
 int ascending_index(int index, int base);
 
+int asc_slope_cell_count(int ascending_index, int base);
+
 #endif //SINGLE_ARRAY_SQUARE

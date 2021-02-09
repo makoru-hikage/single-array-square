@@ -215,3 +215,14 @@ int desc_slope_cell_count(int descending_index, int base){
 int ascending_index(int index, int base){
     return intersection_sum(index, base) - 1;
 }
+
+/**
+ * @brief Count the maximum number of cells in a certain ascending slope
+ * 
+ * @param ascending_index 
+ * @param base 
+ * @return int 
+ */
+int asc_slope_cell_count(int ascending_index, int base){
+    return base - abs(base - ascending_index);
+}
