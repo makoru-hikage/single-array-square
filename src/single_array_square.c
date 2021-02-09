@@ -152,6 +152,16 @@ int column_index(int index, int base){
 }
 
 /**
+ * @brief Counts all the possible slopes in a square. See 1.4.1
+ * 
+ * @param base 
+ * @return int 
+ */
+int count_all_slopes (int base){
+    return (base * 2) - 1;
+}
+
+/**
  * @brief Takes the row and column index of a cell and add them.
  * 
  * @param index 
@@ -182,6 +192,17 @@ int intersection_diff(int index, int base){
  */
 int descending_index(int index, int base){
     return base - intersection_diff(index, base);
+}
+
+/**
+ * @brief Count the maximum number of cells in a certain descending slope
+ * 
+ * @param descending_index 
+ * @param base 
+ * @return int 
+ */
+int desc_slope_cell_count(int descending_index, int base){
+    return base - abs(base - descending_index);
 }
 
 /**
