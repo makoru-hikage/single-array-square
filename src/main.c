@@ -19,6 +19,8 @@ void print_help (char* program_name) {
         "Selects all the cells when options aren't specified.\n"
         "\n"
         "OPTIONS:\n"
+        "  -4, --ascending-slope=INDEX          select all cells\n"
+        "  -5, --descending-slope=INDEX         select all cells\n"
         "  -a, --all                            select all cells\n"
         "  -A, --ascending-opposite=INDEX       select a cell and its opposite along an ascending slant\n"
         "  -c, --column=INDEX                   select all cells within a column by column INDEX\n"
@@ -84,6 +86,8 @@ int main (int argc, char *argv[]) {
         {"vertical-opposite", required_argument, 0, 'V'},
         {"ascending-opposite", required_argument, 0, 'D'},
         {"descending-opposite", required_argument, 0, 'A'},
+        {"ascending-slope", required_argument, 0, '4'},
+        {"descending-slope", required_argument, 0, '5'},
         {0,0,0,0}
     };
 
@@ -108,7 +112,7 @@ int main (int argc, char *argv[]) {
         return EXIT_SUCCESS;
     }
 
-    while((opt = getopt_long(argc, argv, "ac:d:j:mr:H:V:D:A:", long_options, &long_index)) != -1){
+    while((opt = getopt_long(argc, argv, "ac:d:j:mr:H:V:D:A:4:5:", long_options, &long_index)) != -1){
         switch(opt){
             case 'a': {
                 if (selected_cells == NULL)
@@ -202,6 +206,22 @@ int main (int argc, char *argv[]) {
 
                     selected_cells[0] = index;
                     selected_cells[1] = opposite_index;
+                }
+                break;
+            }
+
+            case '5': {
+                if (selected_cells == NULL){
+                    int index = strtol(optarg, &endptr, 0);
+                    selected_cells = select_descending_slope(index, base);
+                }
+                break;
+            }
+
+            case '4': {
+                if (selected_cells == NULL){
+                    int index = strtol(optarg, &endptr, 0);
+                    selected_cells = select_ascending_slope(index, base);
                 }
                 break;
             }

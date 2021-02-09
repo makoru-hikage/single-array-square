@@ -266,3 +266,61 @@ int *select_slants (int index, int base){
             return select_all_slants(base);
     }
 }
+
+/**
+ * @brief Select a descending slope by index
+ * 
+ * @param index descending slope index
+ * @param base 
+ * @return int* 
+ */
+int* select_descending_slope(int index, int base){
+    int number_of_cells = desc_slope_cell_count(index, base);
+    int *cell_indices = calloc (number_of_cells + 1, sizeof(int));
+
+    int d = index;
+    // Find the diametric opposite of the descending index
+    int d_reverse = (count_all_slopes(base) + 1) - d;
+    // Determines whether the slope starts from column or row index 1
+    // If it yields 1, the slope shall start at column 1, if 0, then row 1.
+    int descending_slope_type = (int)floor((double)d_reverse/base);
+    // May result in either 1 or base;
+    int y = (int)pow((double)base, descending_slope_type);
+    // Intersection difference derived from diagonal index
+    int id = base - d;
+
+    for (int n = 1; n <= number_of_cells; n++){
+        int cell_index = n + (base*n) - base + y*abs(id);
+        cell_indices[n - 1] = cell_index;
+    }
+
+    return cell_indices;
+}
+
+/**
+ * @brief Select an ascending slope by index
+ * 
+ * @param index ascending slope index
+ * @param base 
+ * @return int* 
+ */
+int* select_ascending_slope(int index, int base){
+    int l = asc_slope_cell_count(index, base);
+    int *cell_indices = calloc (l + 1, sizeof(int));
+    int a = index;
+    // Determines whether the slope starts from column index 1 or row index b
+    // If it yields 1, the slope shall start at column 1, if 0, then row b.
+    int ascending_slope_type = (int)floor((double)a/base);
+    // May result in either 1 or base;
+    int y = (int)pow((double)base, ascending_slope_type);
+    // Intersection difference derived from diagonal index
+    int id = base - a;
+
+    for (int n = 1; n <= l; n++){
+        int cell_index = base*l + base - base*n - l + n - y*id;
+        cell_indices[n - 1] = cell_index;
+        printf("n %d; i: %d\n", n, cell_index);
+    }
+
+    return cell_indices;
+}
