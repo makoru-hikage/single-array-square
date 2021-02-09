@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.1]
+### Fixes
+- Fix the "printed usage" for switch -4 and -5
+
 ## [0.2]
 ### Added
 - Highlights a chosen ascending or descending slope
