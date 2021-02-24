@@ -51,6 +51,8 @@ int intersection_diff(int index, int base);
 
 int count_all_slopes(int base);
 
+int check_slope_index_validity(int index, int base);
+
 int descending_index(int index, int base);
 
 int desc_slope_cell_count(int descending_index, int base);

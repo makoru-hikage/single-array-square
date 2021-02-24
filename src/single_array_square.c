@@ -162,6 +162,17 @@ int count_all_slopes (int base){
 }
 
 /**
+ * @brief Based on 1.4.1
+ * 
+ * @param index 
+ * @param base 
+ * @return int 
+ */
+int check_slope_index_validity(int index, int base){
+    return index >= 1 && index <= count_all_slopes(base);
+}
+
+/**
  * @brief Takes the row and column index of a cell and add them.
  * 
  * @param index 
