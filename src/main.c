@@ -50,14 +50,14 @@ void exit_on_error () {
     exit(EXIT_FAILURE);
 }
 
-void print_selected_cells(int base, int* selected_cells){
+void print_selected_cells(int base, int* selected_cell_indices){
     struct single_array_square square;
     initialize_square(&square, base);
     square.cells = (int *) malloc (sizeof(int) * (square.size + 1));
 
     print_int_square(&square, selected_cell_indices);
     printf("\n");
-    free (selected_cells);
+    free (square.cells);
 }
 
 int main (int argc, char *argv[]) {
