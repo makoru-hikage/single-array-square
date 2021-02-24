@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0]
+### Adjustments
+- Overhaul on the print usage and menu
+- The switch for selecting ascending and descending slopes are now -A and D respectively (formerly -4 and -4)
+- The switch for horizontal and vertical opposites are now -R and -C respectively (formerly -H and -V)
+
+### Added
+- Switch -x or --cross is added to cells from the two longest slopes
+
+### Removed
+- The option for selecting all cells (formerly -a); it's unnecessary
+- The option for selecting the "slants" has been removed (formerly -d), you can just supply the value of base when selecting a slope
+
+### Fixes
+- Now handles errors when a wrong row, column, or any slope index is chosen
+
+
 ## [0.2.1]
 ### Fixes
 - Fix the "printed usage" for switch -4 and -5
