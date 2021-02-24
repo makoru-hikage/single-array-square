@@ -50,6 +50,22 @@ void exit_on_error () {
     exit(EXIT_FAILURE);
 }
 
+void exit_on_row_index_error (int base) {
+    fprintf(stderr, "Row index must be between 1 and %d.\n\n", base);
+    exit(EXIT_FAILURE);
+}
+
+void exit_on_column_index_error (int base) {
+    fprintf(stderr, "Column index must be between 1 and %d.\n\n", base);
+    exit(EXIT_FAILURE);
+}
+
+void exit_on_slope_index_error (int base) {
+    int slope_count = count_all_slopes(base);
+    fprintf(stderr, "Slope index must be between 1 and %d.\n\n", slope_count);
+    exit(EXIT_FAILURE);
+}
+
 void print_selected_cells(int base, int* selected_cell_indices){
     struct single_array_square square;
     initialize_square(&square, base);
@@ -105,7 +121,12 @@ int main (int argc, char *argv[]) {
             case 'r': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-                    selected_cells = select_row(index, base);
+                    int index_is_valid = check_row_index_validity (index, base);
+                    if (index_is_valid){
+                        selected_cells = select_row(index, base);
+                    } else {
+                        exit_on_row_index_error(base);
+                    }
                 }
                 break;
             }
@@ -113,7 +134,12 @@ int main (int argc, char *argv[]) {
             case 'c': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-                    selected_cells = select_column(index, base);
+                    int index_is_valid = check_column_index_validity (index, base);
+                    if (index_is_valid){
+                        selected_cells = select_column(index, base);
+                    } else {
+                        exit_on_column_index_error(base);
+                    }
                 }
                 break;
             }
@@ -194,7 +220,12 @@ int main (int argc, char *argv[]) {
             case 'd': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-                    selected_cells = select_descending_slope(index, base);
+                    int index_is_valid = check_slope_index_validity (index, base);
+                    if (index_is_valid){
+                        selected_cells = select_descending_slope(index, base);
+                    } else {
+                        exit_on_slope_index_error(base);
+                    }
                 }
                 break;
             }
@@ -202,7 +233,12 @@ int main (int argc, char *argv[]) {
             case 'a': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
-                    selected_cells = select_ascending_slope(index, base);
+                    int index_is_valid = check_slope_index_validity (index, base);
+                    if (index_is_valid){
+                        selected_cells = select_ascending_slope(index, base);
+                    } else {
+                        exit_on_slope_index_error(base);
+                    }
                 }
                 break;
             }
