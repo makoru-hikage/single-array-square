@@ -19,18 +19,12 @@ void print_help (char* program_name) {
         "Selects all the cells when options aren't specified.\n"
         "\n"
         "OPTIONS:\n"
-        "  -4, --ascending-slope=INDEX          select all cells in an ascending slope\n"
-        "  -5, --descending-slope=INDEX         select all cells in a descending slope\n"
-        "  -a, --all                            select all cells\n"
+        "  -a, --ascending-slope=INDEX          select all cells in an ascending slope\n"
         "  -A, --ascending-opposite=INDEX       select a cell and its opposite along an ascending slant\n"
         "  -c, --column=INDEX                   select all cells within a column by column INDEX\n"
-        "  -d, --slant=DIRECTION                select a particular slant:\n"
-        "                                           5 or 6 for the descending slant\n"
-        "                                           4 or 7 for the ascending slant\n"
-        "                                           others select both slants\n"
+        "  -C, --vertical-opposite=INDEX        select a cell and its opposite along a column\n"
+        "  -d, --descending-slope=INDEX         select all cells in a descending slope\n"
         "  -D, --descending-opposite=INDEX      select a cell and its opposite along an descending slant\n"
-        "  -H, --horizontal-opposite=INDEX      select a cell and its opposite along a row\n"
-
         "  -j, --corner=INDEX                   select a particular corner:\n"
         "                                           4 for the top-left corner\n"
         "                                           5 for the top-right corner\n"
@@ -40,7 +34,8 @@ void print_help (char* program_name) {
         "                                           others select none.\n"
         "  -m, --center                         select the central part of a square\n"
         "  -r, --row=INDEX                      select all cells within a row by row INDEX\n"
-        "  -V, --vertical-opposite=INDEX        select a cell and its opposite along a column\n"
+        "  -R, --horizontal-opposite=INDEX      select a cell and its opposite along a row\n"
+        "  -x, --cross                          select the longest two slopes\n"
     );
 
 }
@@ -76,18 +71,17 @@ int main (int argc, char *argv[]) {
     int opt = 0;
     int long_index = 0;
     static struct option long_options[] = {
-        {"all", no_argument, 0, 'a'},
         {"row", required_argument, 0, 'r'},
         {"column", required_argument, 0, 'c'},
-        {"slant", required_argument, 0, 'd'},
+        {"cross", required_argument, 0, 'x'},
         {"corner", required_argument, 0, 'j'},
         {"center", no_argument, 0, 'm'},
-        {"horizontal-opposite", required_argument, 0, 'H'},
-        {"vertical-opposite", required_argument, 0, 'V'},
-        {"ascending-opposite", required_argument, 0, 'D'},
-        {"descending-opposite", required_argument, 0, 'A'},
-        {"ascending-slope", required_argument, 0, '4'},
-        {"descending-slope", required_argument, 0, '5'},
+        {"horizontal-opposite", required_argument, 0, 'R'},
+        {"vertical-opposite", required_argument, 0, 'C'},
+        {"ascending-opposite", required_argument, 0, 'A'},
+        {"descending-opposite", required_argument, 0, 'D'},
+        {"ascending-slope", required_argument, 0, 'a'},
+        {"descending-slope", required_argument, 0, 'd'},
         {0,0,0,0}
     };
 
@@ -112,14 +106,8 @@ int main (int argc, char *argv[]) {
         return EXIT_SUCCESS;
     }
 
-    while((opt = getopt_long(argc, argv, "ac:d:j:mr:H:V:D:A:4:5:", long_options, &long_index)) != -1){
+    while((opt = getopt_long(argc, argv, "a:A:c:C:d:D:j:mr:R:x", long_options, &long_index)) != -1){
         switch(opt){
-            case 'a': {
-                if (selected_cells == NULL)
-                    selected_cells = select_all_cells(base);
-                break;
-            }
-
             case 'r': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
@@ -150,15 +138,14 @@ int main (int argc, char *argv[]) {
                 break;
             }
 
-            case 'd': {
+            case 'x': {
                 if (selected_cells == NULL){
-                    int index = strtol(optarg, &endptr, 0);
-                    selected_cells = select_slants(index, base);
+                    selected_cells = select_slants(ALL, base);
                 }
                 break;
             }
 
-            case 'H': {
+            case 'R': {
                 if (selected_cells == NULL){
                     selected_cells = malloc(sizeof(int)* 3);
                     int index = strtol(optarg, &endptr, 0);
@@ -171,7 +158,7 @@ int main (int argc, char *argv[]) {
                 break;
             }
 
-            case 'V': {
+            case 'C': {
                 if (selected_cells == NULL){
                     selected_cells = malloc(sizeof(int)* 3);
                     int index = strtol(optarg, &endptr, 0);
@@ -210,7 +197,7 @@ int main (int argc, char *argv[]) {
                 break;
             }
 
-            case '5': {
+            case 'd': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
                     selected_cells = select_descending_slope(index, base);
@@ -218,7 +205,7 @@ int main (int argc, char *argv[]) {
                 break;
             }
 
-            case '4': {
+            case 'a': {
                 if (selected_cells == NULL){
                     int index = strtol(optarg, &endptr, 0);
                     selected_cells = select_ascending_slope(index, base);
