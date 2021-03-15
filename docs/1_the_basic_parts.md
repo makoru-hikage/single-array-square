@@ -177,11 +177,12 @@ where `b` is the **base** and `d` is the **descending slope** index (See 1.4.4.1
 To list all the **cells** belonging to the **slope**, the limit number of **cells** (see 1.4.4.3), a **slope** can have, must be determined.
 ```
 id = b - d
-y = b^(floor(d/n))
+d_o = l_dscells(d) - d + 1
+y = b^(floor(d_o/n))
 desc_cells = n + (b*n) - b + y*|id|
 1 <= n <= |id|
 ```
-where `n` is the nth **cell** of the **slope**, `b` the **base**, `d` the **descending slope** index, and `id` the **identity difference** of a **cell** derived from the **descending slope** index. `y` represents whether the **slopes** start from **column** 1 or **row** 1. The value of `y` can either be `b` or 1. If it is `b`, then it starts from **column** 1, if 1, then **row** 1.
+where `n` is the nth **cell** of the **slope**, `b` the **base**, `d` the **descending slope** index, and `id` the **identity difference** of a **cell** derived from the **descending slope** index. `d_o` is the opposite index of `d` along the count of cells in slope index `d`. `y` represents whether the **slopes** start from **column** 1 or **row** 1. The value of `y` can either be `b` or 1. If it is `b`, then it starts from **column** 1, if 1, then **row** 1.
 
 ### 1.4.1 Ascending Slope
 An **ascending slope** is a series of **cells** that start from either **column** index 1 to **row** index 1 or **row** index b to **column** index b as the **row** index decrements whilst the **column** index increments. 
