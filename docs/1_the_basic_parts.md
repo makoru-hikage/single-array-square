@@ -178,7 +178,7 @@ To list all the **cells** belonging to the **slope**, the limit number of **cell
 ```
 id = b - d
 d_o = l_dscells(d) - d + 1
-y = b^(floor(d_o/n))
+y = b^(floor(d_o/b))
 desc_cells = n + (b*n) - b + y*|id|
 1 <= n <= |id|
 ```
@@ -202,16 +202,16 @@ To enumerate all the starting **cells**, all **cells** of **column** index 1 sha
 #### 1.4.5.3. Cells in a Certain Ascending Slope
 To get the maximum number of **cells** in a chosen **ascending slope**, this equation must be used.
 
-`l_dscells = b - |b - d|`
+`l_dscells = |b - a|`
 
-where `b` is the **base** and `d` is the **ascending slope** index (See 1.4.5.1).
+where `b` is the **base** and `a` is the **ascending slope** index (See 1.4.5.1).
 
 #### 1.4.5.4. Cells of an Ascending Slope
 To list all the **cells** belonging to the **slope**, the limit number of **cells** (see 1.4.5.3), a **slope** can have, must be determined.
 ```
 id = b - a
 l = |b - a|
-y = b^(floor(a/n))
+y = b^(floor(a/b))
 asc_cells = b*l + b - b*n - l + n - y*id
 1 <= n <= l
 ```
