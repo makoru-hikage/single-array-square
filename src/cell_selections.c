@@ -261,13 +261,17 @@ int* select_descending_slope(int index, int base){
     int *cell_indices = calloc (number_of_cells + 1, sizeof(int));
 
     int d = index;
+
     // Find the diametric opposite of the descending index
     int d_reverse = (count_all_slopes(base) + 1) - d;
+
     // Determines whether the slope starts from column or row index 1
     // If it yields 1, the slope shall start at column 1, if 0, then row 1.
     int descending_slope_type = (int)floor((double)d_reverse/base);
+
     // May result in either 1 or base;
     int y = (int)pow((double)base, descending_slope_type);
+
     // Intersection difference derived from diagonal index
     int id = base - d;
 
@@ -290,11 +294,14 @@ int* select_ascending_slope(int index, int base){
     int l = asc_slope_cell_count(index, base);
     int *cell_indices = calloc (l + 1, sizeof(int));
     int a = index;
+
     // Determines whether the slope starts from column index 1 or row index b
     // If it yields 1, the slope shall start at column 1, if 0, then row b.
     int ascending_slope_type = (int)floor((double)a/base);
+
     // May result in either 1 or base;
     int y = (int)pow((double)base, ascending_slope_type);
+
     // Intersection difference derived from diagonal index
     int id = base - a;
 
